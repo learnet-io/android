@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IntroGoalsFragment">
     <RelativeLayout
+        android:id="@+id/rlIntroGoals"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,7 +24,6 @@
         android:id="@+id/tvIntroTextHeadingSecondLine"
         android:layout_below="@+id/tvIntroTextHeadingFirstLine"
         android:layout_width="match_parent"
-        android:layout_marginTop="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:fontFamily="sans-serif-black"
@@ -43,14 +44,12 @@
     <TableLayout
         android:id="@+id/tlButtonGroup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:stretchColumns="0,1"
         android:layout_below="@+id/tvIntroTextSubheading">
-
         <TableRow
             android:layout_marginBottom="15dp">
-
             <Button
                 android:id="@+id/btn_improve_thinking"
                 android:layout_width="wrap_content"
@@ -78,7 +77,6 @@
                 android:topRightRadius="50dp"
                 android:text="Button" />
         </TableRow>
-
         <TableRow
             android:layout_marginBottom="15dp">
             <Button
@@ -108,7 +106,6 @@
                 android:topRightRadius="50dp"
                 android:text="Button" />
         </TableRow>
-
         <TableRow
             android:layout_marginBottom="15dp">
             <Button
@@ -137,6 +134,12 @@
                 android:topLeftRadius="50dp"
                 android:topRightRadius="50dp"
                 android:text="Button" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableLayout>
         </TableRow>
         <TableRow
             android:layout_marginBottom="15dp">
@@ -167,28 +170,33 @@
                 android:topRightRadius="50dp"
                 android:text="Button" />
         </TableRow>
-
-
     </TableLayout>
-
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+<!--            -->
+<!--        </LinearLayout>-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/goal_submit"
+            android:layout_below="@+id/tlButtonGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tlButtonGroup"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
             android:layout_gravity="end|bottom"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="36dp"
+            android:layout_alignParentRight="true"
             android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:contentDescription="@string/submit"
             android:elevation="100dp"
             android:src="@drawable/ic_action_chevron"
             android:tint="#882828"
             app:elevation="0dp"
             app:fabSize="normal" />
+
+
     </RelativeLayout>
 
-</ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
