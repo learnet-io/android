@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroGoalsFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvIntroTextHeadingFirstLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-black"
+        android:textSize="25sp"
+        android:textColor="@color/design_default_color_primary"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/tvIntroTextHeadingSecondLine"
+        android:layout_below="@+id/tvIntroTextHeadingFirstLine"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-black"
+        android:textSize="25sp"
+        android:textColor="@color/design_default_color_primary"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/tvIntroTextSubheading"
+        android:layout_below="@+id/tvIntroTextHeadingSecondLine"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:text="TextView" />
+    <TableLayout
+        android:id="@+id/tlButtonGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:stretchColumns="0,1"
+        android:layout_below="@+id/tvIntroTextSubheading">
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+
+            <Button
+                android:id="@+id/btn_improve_thinking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:bottomRightRadius="50dp"
+                android:bottomLeftRadius="50dp"
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp"
+                android:text="Button" />
+            <Button
+                android:id="@+id/btn_meet_people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:bottomRightRadius="50dp"
+                android:bottomLeftRadius="50dp"
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp"
+                android:text="Button" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <Button
+                android:id="@+id/btn_reduce_stress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:bottomRightRadius="50dp"
+                android:bottomLeftRadius="50dp"
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp"
+                android:text="Button" />
+            <Button
+                android:id="@+id/btn_express_myself"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:bottomRightRadius="50dp"
+                android:bottomLeftRadius="50dp"
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp"
+                android:text="Button" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <Button
+                android:id="@+id/btn_manage_emotions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:bottomRightRadius="50dp"
+                android:bottomLeftRadius="50dp"
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp"
+                android:text="Button" />
+            <Button
+                android:id="@+id/btn_become_confident"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:bottomRightRadius="50dp"
+                android:bottomLeftRadius="50dp"
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp"
+                android:text="Button" />
+        </TableRow>
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <Button
+                android:id="@+id/btn_understand_myself"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:bottomRightRadius="50dp"
+                android:bottomLeftRadius="50dp"
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp"
+                android:text="Button" />
+            <Button
+                android:id="@+id/btn_inspire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="20dp"
+                android:bottomRightRadius="50dp"
+                android:bottomLeftRadius="50dp"
+                android:topLeftRadius="50dp"
+                android:topRightRadius="50dp"
+                android:text="Button" />
+        </TableRow>
+
+
+    </TableLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/goal_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tlButtonGroup"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="end|bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:elevation="100dp"
+            android:src="@drawable/ic_action_chevron"
+            android:tint="#882828"
+            app:elevation="0dp"
+            app:fabSize="normal" />
+    </RelativeLayout>
+
+</ScrollView>
