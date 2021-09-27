@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    android:id="@+id/gridLayout"-->
+<!--    android:layout_width="368dp"-->
+<!--    android:layout_height="368dp"-->
+<!--    android:layout_alignParentStart="true"-->
+<!--    android:layout_alignParentLeft="true"-->
+<!--    android:layout_alignParentTop="true"-->
+<!--    android:layout_marginStart="8dp"-->
+<!--    android:layout_marginLeft="8dp"-->
+<!--    android:layout_marginTop="8dp"-->
+<!--    android:layout_marginEnd="8dp"-->
+<!--    android:layout_marginRight="8dp"-->
+<!--    android:layout_marginBottom="8dp"-->
+<!--    android:background="@drawable/board"-->
+<!--    app:columnCount=" 3"-->
+<!--    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
+<!--    app:rowCount=" 3">-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/ivPosterAvatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/tvPostTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ivPosterAvatar"
+            android:text="Post title" />
+        <TextView
+            android:id="@+id/tvPostBookmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvPostTitle"
+            android:gravity="right"
+            android:text="Bookmark"
+            tools:ignore="RtlHardcoded" />
+        <TextView
+            android:id="@+id/tvPostAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPostTitle"
+            android:layout_toEndOf="@+id/ivPosterAvatar"
+            android:text="Author" />
+        <TextView
+            android:id="@+id/tvPostAuthorTimestampDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPostTitle"
+            android:layout_toEndOf="@+id/tvPostAuthor"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="*" />
+        <TextView
+            android:id="@+id/tvPostTimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPostTitle"
+            android:layout_toEndOf="@+id/tvPostAuthorTimestampDivider"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Time" />
+        <TextView
+            android:id="@+id/tvPostSummary"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/ivPosterAvatar"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..." />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            android:layout_below="@+id/tvPostSummary">
+            <TableRow>
+                <TextView
+                    android:id="@+id/tvPostVoteCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvPostSummary"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="# votes" />
+                <TextView
+                    android:id="@+id/tvPostReplyCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvPostSummary"
+                    android:layout_toEndOf="@+id/tvPostAuthorTimestampDivider"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="# replies" />
+                <TextView
+                    android:id="@+id/tvPostViewCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvPostSummary"
+                    android:layout_toEndOf="@+id/tvPostReplyCount"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="# views" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
