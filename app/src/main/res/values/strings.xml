@@ -3,8 +3,17 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-<!--    <string name="goal_submit"></string>-->
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="submit">Submit</string>
+    <string name="intro_goal_heading">LearNet is a daily</string>
+    <string name="intro_goal_subheading">skill-learning ritual</string>
+    <string name="intro_goal_what_are_your_goals">What are your goals?</string>
+    <string name="btn_improve_thinking">Improve creative thinking</string>
+    <string name="btn_meet_people">Meet creative people</string>
+    <string name="btn_reduce_stress">Reduce stress</string>
+    <string name="btn_express_myself">Learn to express myself better</string>
+    <string name="btn_manage_emotions">Manage negative emotions</string>
+    <string name="btn_become_confident">Become more confident</string>
+    <string name="btn_understand_myself">Understand myself better</string>
+    <string name="btn_inspire">Inspire and be inspired</string>
+<!--    <string name="btn_inspire">Inspire and be inspired</string>-->
 </resources>

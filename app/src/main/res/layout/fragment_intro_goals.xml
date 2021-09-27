@@ -7,7 +7,7 @@
     tools:context=".IntroGoalsFragment">
     <RelativeLayout
         android:id="@+id/rlIntroGoals"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -34,7 +34,7 @@
         android:id="@+id/tvIntroTextSubheading"
         android:layout_below="@+id/tvIntroTextHeadingSecondLine"
         android:layout_width="match_parent"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="14dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:fontFamily="sans-serif"
@@ -45,137 +45,118 @@
         android:id="@+id/tlButtonGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:stretchColumns="0,1"
         android:layout_below="@+id/tvIntroTextSubheading">
         <TableRow
             android:layout_marginBottom="15dp">
-            <Button
+            <TextView
                 android:id="@+id/btn_improve_thinking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:bottomRightRadius="50dp"
-                android:bottomLeftRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp"
-                android:text="Button" />
-            <Button
+                android:layout_marginBottom="14dp"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
+                android:text="Button 1" />
+            <TextView
                 android:id="@+id/btn_meet_people"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:bottomRightRadius="50dp"
-                android:bottomLeftRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp"
+                android:layout_marginBottom="14dp"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
                 android:text="Button" />
         </TableRow>
         <TableRow
             android:layout_marginBottom="15dp">
-            <Button
+            <TextView
                 android:id="@+id/btn_reduce_stress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:bottomRightRadius="50dp"
-                android:bottomLeftRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp"
+                android:layout_marginBottom="14dp"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
                 android:text="Button" />
-            <Button
+            <TextView
                 android:id="@+id/btn_express_myself"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:bottomRightRadius="50dp"
-                android:bottomLeftRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp"
+                android:layout_marginBottom="14dp"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
                 android:text="Button" />
         </TableRow>
         <TableRow
             android:layout_marginBottom="15dp">
-            <Button
+            <TextView
                 android:id="@+id/btn_manage_emotions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:bottomRightRadius="50dp"
-                android:bottomLeftRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp"
+                android:layout_marginBottom="14dp"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
                 android:text="Button" />
-            <Button
+            <TextView
                 android:id="@+id/btn_become_confident"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:bottomRightRadius="50dp"
-                android:bottomLeftRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp"
+                android:layout_marginBottom="14dp"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
                 android:text="Button" />
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </TableLayout>
         </TableRow>
         <TableRow
             android:layout_marginBottom="15dp">
-            <Button
+            <TextView
                 android:id="@+id/btn_understand_myself"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:bottomRightRadius="50dp"
-                android:bottomLeftRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp"
+                android:layout_marginBottom="14dp"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
                 android:text="Button" />
-            <Button
+            <TextView
                 android:id="@+id/btn_inspire"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:padding="20dp"
-                android:bottomRightRadius="50dp"
-                android:bottomLeftRadius="50dp"
-                android:topLeftRadius="50dp"
-                android:topRightRadius="50dp"
+                android:layout_marginBottom="14dp"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
                 android:text="Button" />
         </TableRow>
     </TableLayout>
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-<!--            -->
-<!--        </LinearLayout>-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/goal_submit"
             android:layout_below="@+id/tlButtonGroup"
@@ -187,16 +168,11 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="36dp"
             android:layout_alignParentRight="true"
-            android:backgroundTint="@color/design_default_color_secondary_variant"
             android:contentDescription="@string/submit"
-            android:elevation="100dp"
             android:src="@drawable/ic_action_chevron"
-            android:tint="#882828"
+            app:tint="@android:color/white"
+            app:backgroundTint="@color/design_default_color_primary"
             app:elevation="0dp"
             app:fabSize="normal" />
-
-
     </RelativeLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
