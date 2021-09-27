@@ -6,6 +6,7 @@
     tools:context=".ui.posts.PostsHomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPostInfiniteScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

@@ -1,22 +1,23 @@
 package io.learnet.app.ui.posts
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
+import io.learnet.app.adapter.PostAdapter
+
 
 class PostsHomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    lateinit var posts: ArrayList<PostItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
 
-        }
     }
 
     override fun onCreateView(
@@ -27,23 +28,12 @@ class PostsHomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_posts_home, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PostsHomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PostsHomeFragment().apply {
-                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val rvPosts = view?.findViewById(R.id.rvPostInfiniteScroll) as RecyclerView
+        posts = DemoPostCreator.createPostList(20)
+        val adapter = PostAdapter(posts)
+        rvPosts.adapter = adapter
+        rvPosts.layoutManager = LinearLayoutManager(activity)
     }
 }
