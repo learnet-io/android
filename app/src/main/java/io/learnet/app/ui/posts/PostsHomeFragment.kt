@@ -30,6 +30,7 @@ class PostsHomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = "Recent Posts"
         val rvPosts = view?.findViewById(R.id.rvPostInfiniteScroll) as RecyclerView
         posts = DemoPostCreator.createPostList(20)
         val adapter = PostAdapter(posts)
