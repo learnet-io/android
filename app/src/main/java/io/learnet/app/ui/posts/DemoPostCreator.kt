@@ -15,7 +15,7 @@ class DemoPostCreator {
                     "John",
                 "Glenn",
                 "https://i.picsum.photos/id/287/200/200.jpg?hmac=kXFCSMZE2rF7NM-EFSH6c_nl5HlKQWvwCdE8JYL-YNQ",
-                "Celestial bodies are awesome",
+                "Celestial bodies rock",
                 "1h ago",
                     "Did you know that the sun revolves around the Milky Way Galaxy!? " +
                             "It does this every 200 millions or so, which means it...",

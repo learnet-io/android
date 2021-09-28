@@ -43,10 +43,9 @@ class PostAdapter(private val posts: List<PostItem>) : RecyclerView.Adapter<Post
         holder.authorView.text = "${post.authorFirstName} ${post.authorLastName}"
         holder.timestampView.text = post.timestamp
         holder.summaryView.text = post.summary
-        holder.voteCountView.text = post.voteCount.toString()
-        holder.replyCountView.text = post.replyCount.toString()
-        holder.viewCountView.text = post.viewCount.toString()
-        holder.postBookmarkView.text = "✓"
+        holder.voteCountView.text = "${post.voteCount} votes"
+        holder.replyCountView.text = "${post.replyCount} replies"
+        holder.viewCountView.text = "${post.viewCount} views"
     }
 
     override fun getItemCount(): Int {

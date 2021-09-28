@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="15dp"
+    android:background="@drawable/round_corners">
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivPosterAvatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="10dp"
@@ -19,44 +21,64 @@
         app:civ_border_width="0dp"
         app:civ_border_color="#FFFFFFFF"
         app:srcCompat="@mipmap/ic_launcher"/>
-
-    <TextView
-        android:id="@+id/tvPostTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/ivPosterAvatar"
-        android:text="Post title" />
-    <TextView
-        android:id="@+id/tvPostBookmark"
+    <TableLayout
+        android:id="@+id/tvTitleBookmarkContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/tvPostTitle"
-        android:gravity="right"
-        android:text="Bookmark"/>
+        android:layout_toRightOf="@+id/ivPosterAvatar"
+        android:stretchColumns="0">
+        <TableRow>
+            <TextView
+                android:id="@+id/tvPostTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/ivPosterAvatar"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="Post title" />
+            <TextView
+                android:id="@+id/tvPostBookmark"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/tvPostTitle"
+                android:background="@drawable/ic_bookmark"
+                android:text=""/>
+        </TableRow>
+    </TableLayout>
     <TextView
         android:id="@+id/tvPostAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvPostTitle"
+        android:layout_below="@+id/tvTitleBookmarkContainer"
         android:layout_toEndOf="@+id/ivPosterAvatar"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:textColor="@color/grey"
         android:text="Author" />
     <TextView
         android:id="@+id/tvPostAuthorTimestampDivider"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvPostTitle"
+        android:layout_height="25dp"
+        android:layout_below="@+id/tvTitleBookmarkContainer"
         android:layout_toEndOf="@+id/tvPostAuthor"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="*" />
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="-4dp"
+        android:layout_marginTop="-8dp"
+        android:textSize="24sp"
+        android:gravity="end"
+        android:textColor="@color/light_green"
+        android:text="•" />
     <TextView
         android:id="@+id/tvPostTimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvPostTitle"
+        android:layout_below="@+id/tvTitleBookmarkContainer"
         android:layout_toEndOf="@+id/tvPostAuthorTimestampDivider"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:textColor="@color/grey"
         android:text="Time" />
     <TextView
         android:id="@+id/tvPostSummary"
@@ -66,18 +88,17 @@
         android:layout_below="@+id/ivPosterAvatar"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:textSize="12sp"
+        android:textColor="@color/dark_grey"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..." />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvPostSummary"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="10dp"
         android:stretchColumns="*">
-
-        <TableRow android:layout_marginTop="10dp">
-
+        <TableRow>
             <TextView
                 android:id="@+id/tvPostVoteCount"
                 android:layout_width="wrap_content"
@@ -85,7 +106,11 @@
                 android:layout_below="@+id/tvPostSummary"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="# votes" />
+                android:textSize="10dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/grey"
+                android:drawableLeft="@drawable/ic_baseline_thumb_up_24"
+                android:text="120 votes" />
 
             <TextView
                 android:id="@+id/tvPostReplyCount"
@@ -94,19 +119,26 @@
                 android:layout_below="@+id/tvPostSummary"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:textSize="10dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/grey"
+                android:drawableLeft="@drawable/ic_baseline_mode_comment_24"
                 android:layout_toEndOf="@+id/tvPostAuthorTimestampDivider"
-                android:text="# replies" />
+                android:text="80 replies" />
 
             <TextView
                 android:id="@+id/tvPostViewCount"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvPostSummary"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:textSize="10dp"
+                android:drawablePadding="5dp"
+                android:textColor="@color/grey"
+                android:drawableLeft="@drawable/ic_baseline_remove_red_eye_24"
                 android:layout_toEndOf="@+id/tvPostReplyCount"
-                android:gravity="center"
-                android:text="# views" />
+                android:text="200 views" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>
