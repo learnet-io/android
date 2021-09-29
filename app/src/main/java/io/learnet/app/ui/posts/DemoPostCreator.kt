@@ -1,13 +1,14 @@
 package io.learnet.app.ui.posts
 
 
+
 /**
  * @author Bizuwork Melesse
  * created on 9/26/21
  */
 class DemoPostCreator {
     companion object {
-        fun createPostList(numPosts: Int): ArrayList<PostItem> {
+        fun createPostList(numPosts: Int): ArrayList<*> {
             val posts = ArrayList<PostItem>()
             for (i in 1..numPosts) {
                 posts.add(

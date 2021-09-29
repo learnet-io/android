@@ -13,12 +13,7 @@ import io.learnet.app.adapter.PostAdapter
 
 class PostsHomeFragment : Fragment() {
 
-    lateinit var posts: ArrayList<PostItem>
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    var postItems: ArrayList<Any> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,10 +25,15 @@ class PostsHomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = "Recent Posts"
         val rvPosts = view?.findViewById(R.id.rvPostInfiniteScroll) as RecyclerView
-        posts = DemoPostCreator.createPostList(20)
-        val adapter = PostAdapter(posts)
+
+        // Add a section header
+        val sectionHeader = PostSectionHeader(getString(R.string.post_section_recent_header))
+        postItems.add(sectionHeader)
+
+        // Add post items
+        postItems.addAll(DemoPostCreator.createPostList(20))
+        val adapter = PostAdapter(postItems)
         rvPosts.adapter = adapter
         rvPosts.layoutManager = LinearLayoutManager(activity)
     }
