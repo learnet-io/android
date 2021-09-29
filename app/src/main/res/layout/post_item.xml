@@ -13,7 +13,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/ivPosterAvatar"
+        android:id="@+id/ivDetailPosterAvatar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
@@ -25,22 +25,22 @@
         app:civ_border_color="#FFFFFFFF"
         app:srcCompat="@mipmap/ic_launcher"/>
     <TableLayout
-        android:id="@+id/tvTitleBookmarkContainer"
+        android:id="@+id/tvPostDetailTitleBookmarkContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ivPosterAvatar"
+        android:layout_toRightOf="@+id/ivDetailPosterAvatar"
         android:stretchColumns="0">
         <TableRow>
             <TextView
                 android:id="@+id/tvPostTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/ivPosterAvatar"
+                android:layout_toEndOf="@+id/ivDetailPosterAvatar"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:text="Post title" />
             <TextView
-                android:id="@+id/tvPostBookmark"
+                android:id="@+id/tvPostDetailBookmark"
                 android:layout_width="24dp"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/tvPostTitle"
@@ -52,8 +52,8 @@
         android:id="@+id/tvPostAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitleBookmarkContainer"
-        android:layout_toEndOf="@+id/ivPosterAvatar"
+        android:layout_below="@+id/tvPostDetailTitleBookmarkContainer"
+        android:layout_toEndOf="@+id/ivDetailPosterAvatar"
         android:textStyle="normal"
         android:textSize="12sp"
         android:textColor="@color/grey"
@@ -62,7 +62,7 @@
         android:id="@+id/tvPostAuthorTimestampDivider"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_below="@+id/tvTitleBookmarkContainer"
+        android:layout_below="@+id/tvPostDetailTitleBookmarkContainer"
         android:layout_toEndOf="@+id/tvPostAuthor"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="-4dp"
@@ -75,7 +75,7 @@
         android:id="@+id/tvPostTimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitleBookmarkContainer"
+        android:layout_below="@+id/tvPostDetailTitleBookmarkContainer"
         android:layout_toEndOf="@+id/tvPostAuthorTimestampDivider"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="2dp"
-        android:layout_below="@+id/ivPosterAvatar"
+        android:layout_below="@+id/ivDetailPosterAvatar"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:textSize="12sp"

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/postsHomeFragment">
+    app:startDestination="@id/postDetail">
     <fragment
         android:id="@+id/introGoalsFragment"
         android:name="io.learnet.app.IntroGoalsFragment"
@@ -16,7 +16,7 @@
         tools:layout="@layout/fragment_posts_home" />
     <fragment
         android:id="@+id/postDetail"
-        android:name="io.learnet.app.ui.posts.PostDetail"
+        android:name="io.learnet.app.ui.posts.PostDetailFragment"
         android:label="fragment_post_detail"
         tools:layout="@layout/fragment_post_detail" />
 </navigation>

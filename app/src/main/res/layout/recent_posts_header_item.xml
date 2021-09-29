@@ -5,15 +5,15 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:layout_marginBottom="8dp"
-    android:layout_marginTop="16dp"
+    android:layout_marginBottom="12dp"
+    android:layout_marginTop="20dp"
     android:paddingLeft="10dp">
 
     <TextView
-        android:id="@+id/tvRecentPostsTitle"
+        android:id="@+id/tvPostSectionHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:text="Recent Posts" />
+        android:text="Post Section Header" />
 </RelativeLayout>
