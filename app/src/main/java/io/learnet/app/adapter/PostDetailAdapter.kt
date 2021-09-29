@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import io.learnet.app.R
 import io.learnet.app.ui.posts.PostDetailItem
+import io.learnet.app.ui.posts.PostReplyItem
 import io.learnet.app.ui.posts.PostSectionHeader
 import io.learnet.app.ui.utils.BaseViewHolder
 
@@ -22,8 +23,7 @@ class PostDetailAdapter(private val viewItems: List<*>) :
     companion object {
         private const val TYPE_POST_DETAIL_HEADER = 0
         private const val TYPE_POST_BODY = 1
-        private const val TYPE_REPLIES_HEADER = 2
-        private const val TYPE_REPLIES = 3
+        private const val TYPE_REPLIES = 2
     }
 
     inner class PostDetailItemViewHolder(itemView: View) : BaseViewHolder<PostDetailItem>(itemView) {
@@ -42,6 +42,21 @@ class PostDetailAdapter(private val viewItems: List<*>) :
         }
     }
 
+    inner class PostReplyItemViewHolder(itemView: View) : BaseViewHolder<PostReplyItem>(itemView) {
+        override fun bind(item: PostReplyItem) {
+            val avatarView = itemView.findViewById<ImageView>(R.id.ivReplyPosterAvatar)
+            val authorView = itemView.findViewById<TextView>(R.id.tvPostReplyAuthor)
+            val timestampView = itemView.findViewById<TextView>(R.id.tvPostReplyTimestamp)
+            val bodyView = itemView.findViewById<TextView>(R.id.tvPostReplyBody)
+            val voteCountView = itemView.findViewById<TextView>(R.id.tvPostReplyVoteCount)
+            Picasso.get().load(item.avatarUrl).into(avatarView)
+            authorView.text = "${item.authorFirstName} ${item.authorLastName}"
+            timestampView.text = item.timestamp
+            bodyView.text = item.body
+            voteCountView.text = "${item.voteCount} votes"
+        }
+    }
+
     inner class PostDetailHeaderViewHolder(itemView: View) : BaseViewHolder<PostSectionHeader>(itemView) {
         override fun bind(item: PostSectionHeader) {
             val headerView = itemView.findViewById<TextView>(R.id.tvPostSectionHeader)
@@ -57,8 +72,12 @@ class PostDetailAdapter(private val viewItems: List<*>) :
                 PostDetailItemViewHolder(postItemView)
             }
             TYPE_POST_DETAIL_HEADER -> {
-                val postHeaderView = inflater.inflate(R.layout.recent_posts_header_item, parent, false)
+                val postHeaderView = inflater.inflate(R.layout.posts_section_header, parent, false)
                 PostDetailHeaderViewHolder(postHeaderView)
+            }
+            TYPE_REPLIES -> {
+                val postReplyView= inflater.inflate(R.layout.post_reply, parent, false)
+                PostReplyItemViewHolder(postReplyView)
             } else -> throw IllegalArgumentException("Invalid view type")
         }
     }
@@ -67,6 +86,7 @@ class PostDetailAdapter(private val viewItems: List<*>) :
         when (holder) {
             is PostDetailItemViewHolder -> holder.bind(viewItems[position] as PostDetailItem)
             is PostDetailHeaderViewHolder -> holder.bind(viewItems[position] as PostSectionHeader)
+            is PostReplyItemViewHolder -> holder.bind(viewItems[position] as PostReplyItem)
         }
     }
 
@@ -78,6 +98,7 @@ class PostDetailAdapter(private val viewItems: List<*>) :
         return when (viewItems[position]) {
             is PostSectionHeader -> TYPE_POST_DETAIL_HEADER
             is PostDetailItem -> TYPE_POST_BODY
+            is PostReplyItem -> TYPE_REPLIES
             else -> throw IllegalArgumentException("Invalid type of data " + position)
         }
     }

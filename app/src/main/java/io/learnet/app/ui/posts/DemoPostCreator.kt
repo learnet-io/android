@@ -49,5 +49,22 @@ class DemoPostCreator {
                         81,
                         1544)
             }
+
+        fun createPostReplies(numReplies: Int): ArrayList<PostReplyItem> {
+            val replies = ArrayList<PostReplyItem>()
+            for (i in 1..numReplies) {
+                replies.add(
+                    PostReplyItem(
+                        "John",
+                        "Glenn",
+                        "https://i.picsum.photos/id/287/200/200.jpg?hmac=kXFCSMZE2rF7NM-EFSH6c_nl5HlKQWvwCdE8JYL-YNQ",
+                        "1h ago",
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium " +
+                                "doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore" +
+                                "veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ",
+                        235))
+            }
+            return replies
         }
+    }
 }

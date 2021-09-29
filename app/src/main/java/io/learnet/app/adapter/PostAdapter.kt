@@ -63,7 +63,7 @@ class PostAdapter(private val viewItems: List<*>) :
                 PostItemViewHolder(postItemView)
             }
             TYPE_POST_HEADER -> {
-                val postHeaderView = inflater.inflate(R.layout.recent_posts_header_item, parent, false)
+                val postHeaderView = inflater.inflate(R.layout.posts_section_header, parent, false)
                 PostSectionHeaderViewHolder(postHeaderView)
             } else -> throw IllegalArgumentException("Invalid view type")
         }
