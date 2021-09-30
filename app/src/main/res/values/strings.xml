@@ -18,6 +18,12 @@
     <string name="post_section_recent_header">Recent Posts</string>
     <string name="post_detail_section_header">View Post</string>
 
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="discover">Discover</string>
+    <string name="settings">Settings</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--    <string name="btn_inspire">Inspire and be inspired</string>-->
