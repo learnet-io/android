@@ -1,14 +1,10 @@
 package io.learnet.app
 
-//import io.learnet.app.adapter.ViewPagerAdapter
-
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
-import io.learnet.app.ui.home.HomeFragment
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
 
@@ -25,14 +21,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         chipNavigationBar = findViewById(R.id.bottom_nav)
-        chipNavigationBar.setItemSelected(
-            R.id.bottom_nav,
-            true
-        )
+        chipNavigationBar.setItemSelected(R.id.bottom_nav, true)
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                HomeFragment()
+                PostsHomeFragment()
             ).commit()
         bottomMenu()
     }
