@@ -7,6 +7,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
+import io.learnet.app.ui.richtext.RichTextFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                PostsHomeFragment()
+                RichTextFragment()
+//                PostsHomeFragment()
             ).commit()
         bottomMenu()
     }
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                 when (id) {
                     R.id.home -> fragment = PostsHomeFragment()
                     R.id.task -> fragment = IntroGoalsFragment()
+                    R.id.group -> fragment = RichTextFragment()
                     R.id.profile -> fragment = PostDetailFragment()
                 }
                 if (fragment != null) {
