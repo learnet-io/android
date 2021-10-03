@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.UserProfileEditFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="50dp"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="0,1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:padding="10dp">
+                <TableRow>
+                    <TextView
+                        android:id="@+id/tv_cancel_profile_save"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:background="@drawable/ic_close" />
+
+                    <TextView
+                        android:id="@+id/ib_submit_profile_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:background="@drawable/ic_save_floppy_disk" />
+                </TableRow>
+            </TableLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_user_profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/cat_happy"
+                app:civ_border_width="0dp"
+                app:civ_border_color="#FFFFFFFF"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:stretchColumns="0">
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/tv_user_profile_image_upload"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="left"
+                        android:textStyle="bold"
+                        android:drawablePadding="10dp"
+                        android:paddingTop="0dp"
+                        android:drawableStart="@drawable/ic_camera"
+                        android:text="Upload Profile Picture"
+                        />
+                </TableRow>
+            </TableLayout>
+
+            <EditText
+                android:id="@+id/tv_user_full_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_user_profile_image"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="First and Last name"/>
+
+            <EditText
+                android:id="@+id/tv_user_job_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_user_full_name"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="normal"
+                android:textSize="12sp"
+                android:textColor="@color/deep_grey"
+                android:text="Professional Title"/>
+
+            <TableLayout
+                android:id="@+id/tl_bio_content_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_user_job_title"
+                android:layout_margin="20dp"
+                android:stretchColumns="0,1"
+                android:gravity="center"
+                android:background="@drawable/round_corners_with_border">
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/tv_biography_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/round_corners_with_background"
+                        android:text="Biography"/>
+
+                    <TextView
+                        android:id="@+id/tv_portfolio_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="Portfolio"/>
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/tv_user_portfolio_part_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tl_bio_content_tabs"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="normal"
+                android:textSize="12sp"
+                android:textColor="@color/deep_grey"
+                android:text="@string/portfolio_placeholder"/>
+
+            <TextView
+                android:id="@+id/tv_user_bio_part_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tl_bio_content_tabs"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:text="Two Truths and a Lie"/>
+
+            <EditText
+                android:id="@+id/tv_user_bio_part_1_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_user_bio_part_1"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="normal"
+                android:textSize="12sp"
+                android:textColor="@color/deep_grey"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+
+            <TextView
+                android:id="@+id/tv_user_bio_part_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_user_bio_part_1_body"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:text="Something Funny"/>
+
+            <EditText
+                android:id="@+id/tv_user_bio_part_2_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_user_bio_part_2"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="normal"
+                android:textSize="12sp"
+                android:textColor="@color/deep_grey"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+
+
+            <TextView
+                android:id="@+id/tv_user_bio_part_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_user_bio_part_2_body"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:text="Interests and Hobbies"/>
+
+            <EditText
+                android:id="@+id/tv_user_bio_part_3_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_user_bio_part_3"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="50dp"
+                android:textStyle="normal"
+                android:textSize="12sp"
+                android:textColor="@color/deep_grey"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
