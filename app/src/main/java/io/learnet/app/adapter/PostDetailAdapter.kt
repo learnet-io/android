@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 import io.learnet.app.R
 import io.learnet.app.ui.posts.PostDetailItem
 import io.learnet.app.ui.posts.PostReplyItem
-import io.learnet.app.ui.posts.PostSectionHeader
+import io.learnet.app.ui.utils.SectionHeader
 import io.learnet.app.ui.utils.BaseViewHolder
 
 /**
@@ -57,8 +57,8 @@ class PostDetailAdapter(private val viewItems: List<*>) :
         }
     }
 
-    inner class PostDetailHeaderViewHolder(itemView: View) : BaseViewHolder<PostSectionHeader>(itemView) {
-        override fun bind(item: PostSectionHeader) {
+    inner class PostDetailHeaderViewHolder(itemView: View) : BaseViewHolder<SectionHeader>(itemView) {
+        override fun bind(item: SectionHeader) {
             val headerView = itemView.findViewById<TextView>(R.id.tvPostSectionHeader)
             headerView.text = item.title
         }
@@ -85,7 +85,7 @@ class PostDetailAdapter(private val viewItems: List<*>) :
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         when (holder) {
             is PostDetailItemViewHolder -> holder.bind(viewItems[position] as PostDetailItem)
-            is PostDetailHeaderViewHolder -> holder.bind(viewItems[position] as PostSectionHeader)
+            is PostDetailHeaderViewHolder -> holder.bind(viewItems[position] as SectionHeader)
             is PostReplyItemViewHolder -> holder.bind(viewItems[position] as PostReplyItem)
         }
     }
@@ -96,7 +96,7 @@ class PostDetailAdapter(private val viewItems: List<*>) :
 
     override fun getItemViewType(position: Int): Int {
         return when (viewItems[position]) {
-            is PostSectionHeader -> TYPE_POST_DETAIL_HEADER
+            is SectionHeader -> TYPE_POST_DETAIL_HEADER
             is PostDetailItem -> TYPE_POST_BODY
             is PostReplyItem -> TYPE_REPLIES
             else -> throw IllegalArgumentException("Invalid type of data " + position)

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
 import io.learnet.app.adapter.PostDetailAdapter
+import io.learnet.app.ui.utils.SectionHeader
 
 
 class PostDetailFragment : Fragment() {
@@ -28,14 +29,14 @@ class PostDetailFragment : Fragment() {
         val rvPostDetail = view?.findViewById(R.id.rv_post_detail) as RecyclerView
 
         // Add a section header
-        val sectionHeader = PostSectionHeader(getString(R.string.post_detail_section_header))
+        val sectionHeader = SectionHeader(getString(R.string.post_detail_section_header))
         postItems.add(sectionHeader)
 
         // Add post items
         postItems.add(DemoPostCreator.createPostDetail())
 
         // Add replies
-        val repliesHeader = PostSectionHeader("Replies (80)")
+        val repliesHeader = SectionHeader("Replies (80)")
         postItems.add(repliesHeader)
         postItems.addAll(DemoPostCreator.createPostReplies(5))
         val adapter = PostDetailAdapter(postItems)

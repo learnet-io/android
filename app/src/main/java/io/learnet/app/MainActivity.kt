@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
+import io.learnet.app.ui.events.EventListFragment
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
 import io.learnet.app.ui.posts.CreatePostFragment
@@ -29,9 +30,10 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
+                EventListFragment()
 //                UserProfileEditFragment()
 //                UserProfileFragment()
-                CreatePostReplyFragment()
+//                CreatePostReplyFragment()
 //                CreatePostFragment()
 //                PostsHomeFragment()
 //            TextInputFragment()
@@ -64,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.task -> fragment = IntroGoalsFragment()
                     R.id.group -> fragment = CreatePostFragment()
                     R.id.profile -> fragment = PostDetailFragment()
-                    R.id.events -> fragment = TextInputFragment()
+                    R.id.events -> fragment = EventListFragment()
                 }
                 if (fragment != null) {
                     supportFragmentManager.beginTransaction()

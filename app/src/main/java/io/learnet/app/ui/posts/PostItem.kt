@@ -6,7 +6,7 @@ package io.learnet.app.ui.posts
  * created on 9/26/21
  */
 data class PostItem(
-    open val authorFirstName: String,
+    val authorFirstName: String,
     val authorLastName: String,
     val avatarUrl: String,
     val title: String,
@@ -15,5 +15,4 @@ data class PostItem(
     val voteCount: Long,
     val replyCount: Long,
     val viewCount: Long
-
 )

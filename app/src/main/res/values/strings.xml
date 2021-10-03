@@ -29,5 +29,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="portfolio_placeholder">Your portfolio is generated and shown here as you learn and complete tasks. So go ahead, do more tasks!</string>
     <string name="upload_profile_picture">Upload Profile Picture</string>
+    <string name="lorem_ipsum_short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...</string>
     <!--    <string name="btn_inspire">Inspire and be inspired</string>-->
 </resources>

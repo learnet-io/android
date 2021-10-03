@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
 import io.learnet.app.adapter.PostAdapter
+import io.learnet.app.ui.utils.SectionHeader
 
 
 class PostsHomeFragment : Fragment() {
@@ -28,7 +29,7 @@ class PostsHomeFragment : Fragment() {
         val rvPosts = view?.findViewById(R.id.rvPostInfiniteScroll) as RecyclerView
 
         // Add a section header
-        val sectionHeader = PostSectionHeader(getString(R.string.post_section_recent_header))
+        val sectionHeader = SectionHeader(getString(R.string.post_section_recent_header))
         postItems.add(sectionHeader)
 
         // Add post items
