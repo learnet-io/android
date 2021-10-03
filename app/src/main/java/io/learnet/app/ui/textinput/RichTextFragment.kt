@@ -37,6 +37,8 @@ class RichTextFragment : Fragment() {
         view.findViewById<ImageButton>(R.id.action_strikethrough).setOnClickListener({ mEditor!!.setStrikeThrough() })
         view.findViewById<ImageButton>(R.id.action_insert_bullets).setOnClickListener({ mEditor!!.setBullets() })
         view.findViewById<ImageButton>(R.id.action_insert_numbers).setOnClickListener({ mEditor!!.setNumbers() })
+        view.findViewById<ImageButton>(R.id.action_indent).setOnClickListener({ mEditor!!.setIndent() })
+        view.findViewById<ImageButton>(R.id.action_outdent).setOnClickListener({ mEditor!!.setOutdent() })
         view.findViewById<ImageButton>(R.id.action_insert_link).setOnClickListener {
             mEditor!!.insertLink(
                 "https://learnet.io",

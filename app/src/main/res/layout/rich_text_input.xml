@@ -9,57 +9,35 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
+        android:paddingTop="12dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="4dp"
         android:background="@color/rich_text_tools">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
+        <TableLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:stretchColumns="0,1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="8dp">
+            <TableRow>
+                <TextView
+                    android:id="@+id/tv_cancel_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/ic_close" />
 
-            <ImageButton
-                android:id="@+id/action_bold2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/ic_format_bold" />
-
-            <ImageButton
-                android:id="@+id/action_italic2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/ic_format_italic" />
-
-            <ImageButton
-                android:id="@+id/action_strikethrough2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/ic_format_strikethrough" />
-
-            <ImageButton
-                android:id="@+id/action_insert_bullets2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/ic_format_bullets" />
-
-            <ImageButton
-                android:id="@+id/action_insert_numbers2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/ic_format_numbers" />
-
-            <ImageButton
-                android:id="@+id/action_insert_link2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="18dp"
-                android:background="@drawable/ic_format_insert_link" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/ib_submit_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ic_submit" />
+            </TableRow>
+        </TableLayout>
     </HorizontalScrollView>
 
     <ScrollView
@@ -74,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             android:layout_marginBottom="@dimen/bottom_nav_height"
             android:padding="10dp"/>
     </ScrollView>
@@ -132,6 +110,20 @@
                 android:background="@drawable/ic_format_numbers" />
 
             <ImageButton
+                android:id="@+id/action_outdent"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/ic_outdent" />
+
+            <ImageButton
+                android:id="@+id/action_indent"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/ic_indent" />
+
+            <ImageButton
                 android:id="@+id/action_insert_link"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -139,7 +131,4 @@
                 android:background="@drawable/ic_format_insert_link" />
         </LinearLayout>
     </HorizontalScrollView>
-
-
-
 </RelativeLayout>
