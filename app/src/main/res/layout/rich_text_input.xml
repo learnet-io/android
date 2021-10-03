@@ -1,29 +1,91 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <jp.wasabeef.richeditor.RichEditor
-        android:id="@+id/editor"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <EditText
-        android:id="@+id/et_input_box"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        />
-
     <HorizontalScrollView
-        android:id="@+id/hsv_rich_text_tools"
-        android:layout_below="@+id/et_input_box"
+        android:id="@+id/hsv_rich_text_control_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:background="@color/rich_text_tools">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageButton
+                android:id="@+id/action_bold2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_format_bold" />
+
+            <ImageButton
+                android:id="@+id/action_italic2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/ic_format_italic" />
+
+            <ImageButton
+                android:id="@+id/action_strikethrough2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/ic_format_strikethrough" />
+
+            <ImageButton
+                android:id="@+id/action_insert_bullets2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/ic_format_bullets" />
+
+            <ImageButton
+                android:id="@+id/action_insert_numbers2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/ic_format_numbers" />
+
+            <ImageButton
+                android:id="@+id/action_insert_link2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/ic_format_insert_link" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginBottom="@dimen/bottom_nav_height"
+        android:layout_below="@+id/hsv_rich_text_control_menu">
+
+        <jp.wasabeef.richeditor.RichEditor
+            android:id="@+id/editor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/bottom_nav_height"
+            android:padding="10dp"/>
+    </ScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_rich_text_tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/bottom_nav_height"
         android:layout_gravity="center"
         android:background="@color/rich_text_tools">
 
@@ -77,6 +139,7 @@
                 android:background="@drawable/ic_format_insert_link" />
         </LinearLayout>
     </HorizontalScrollView>
+
 
 
 </RelativeLayout>

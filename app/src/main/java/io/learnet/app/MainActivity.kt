@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
             .replace(
                 R.id.fragment_container,
 
-//                RichTextFragment()
+                RichTextFragment()
 //                PostsHomeFragment()
-            TextInputFragment()
+//            TextInputFragment()
             ).commit()
         bottomMenu()
         softAssist = SoftInputAssist(this, chipNavigationBar.layoutParams.height)

@@ -28,9 +28,9 @@ class RichTextFragment : Fragment() {
 
         mEditor = view?.findViewById(R.id.editor) as RichEditor
         mEditor!!.setEditorHeight(200)
-        mEditor!!.setEditorFontSize(16)
+        mEditor!!.setEditorFontSize(18)
         mEditor!!.setEditorFontColor(Color.BLACK)
-        mEditor!!.setPadding(10, 10, 10, 10)
+        mEditor!!.setPadding(16, 10, 16, 10)
         mEditor!!.setPlaceholder("What's on your mind?")
         view.findViewById<ImageButton>(R.id.action_bold).setOnClickListener({ mEditor!!.setBold() })
         view.findViewById<ImageButton>(R.id.action_italic).setOnClickListener({ mEditor!!.setItalic() })
