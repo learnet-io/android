@@ -7,6 +7,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
+import io.learnet.app.ui.profile.UserProfileFragment
 import io.learnet.app.ui.textinput.RichTextFragment
 import io.learnet.app.ui.textinput.TextInputFragment
 import io.learnet.app.ui.utils.SoftInputAssist
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-
-                RichTextFragment()
+                UserProfileFragment()
+//                RichTextFragment()
 //                PostsHomeFragment()
 //            TextInputFragment()
             ).commit()
