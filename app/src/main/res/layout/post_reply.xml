@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
@@ -11,7 +10,6 @@
     android:padding="15dp"
     android:background="@drawable/round_corners">
     <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivReplyPosterAvatar"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -76,6 +74,6 @@
         android:textSize="10dp"
         android:drawablePadding="5dp"
         android:textColor="@color/grey"
-        android:drawableLeft="@drawable/ic_baseline_thumb_up_24"
-        android:text="120 votes" />
+        android:text="120 votes"
+        app:drawableLeftCompat="@drawable/ic_baseline_thumb_up_24" />
 </RelativeLayout>

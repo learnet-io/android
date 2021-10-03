@@ -13,7 +13,7 @@ import io.learnet.app.adapter.PostDetailAdapter
 
 class PostDetailFragment : Fragment() {
 
-    var postItems: ArrayList<Any> = ArrayList()
+    private var postItems: ArrayList<Any> = ArrayList()
 
 
     override fun onCreateView(
@@ -25,7 +25,7 @@ class PostDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val rvPostDetail = view?.findViewById(R.id.rvPostDetailInfiniteScroll) as RecyclerView
+        val rvPostDetail = view?.findViewById(R.id.rv_post_detail) as RecyclerView
 
         // Add a section header
         val sectionHeader = PostSectionHeader(getString(R.string.post_detail_section_header))

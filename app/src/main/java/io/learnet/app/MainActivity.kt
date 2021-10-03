@@ -7,9 +7,8 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
-import io.learnet.app.ui.profile.UserProfileEditFragment
-import io.learnet.app.ui.profile.UserProfileFragment
-import io.learnet.app.ui.textinput.RichTextFragment
+import io.learnet.app.ui.posts.CreatePostFragment
+import io.learnet.app.ui.posts.CreatePostReplyFragment
 import io.learnet.app.ui.textinput.TextInputFragment
 import io.learnet.app.ui.utils.SoftInputAssist
 
@@ -30,9 +29,10 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                UserProfileEditFragment()
+//                UserProfileEditFragment()
 //                UserProfileFragment()
-//                RichTextFragment()
+                CreatePostReplyFragment()
+//                CreatePostFragment()
 //                PostsHomeFragment()
 //            TextInputFragment()
             ).commit()
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                 when (id) {
                     R.id.home -> fragment = PostsHomeFragment()
                     R.id.task -> fragment = IntroGoalsFragment()
-                    R.id.group -> fragment = RichTextFragment()
+                    R.id.group -> fragment = CreatePostFragment()
                     R.id.profile -> fragment = PostDetailFragment()
                     R.id.events -> fragment = TextInputFragment()
                 }

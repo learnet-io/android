@@ -1,0 +1,44 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_rich_text_control_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:paddingTop="12dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="4dp"
+        android:background="@color/rich_text_tools">
+
+        <TableLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:stretchColumns="0,1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="8dp">
+            <TableRow>
+                <TextView
+                    android:id="@+id/tv_cancel_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/ic_close" />
+
+                <TextView
+                    android:id="@+id/ib_submit_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ic_submit" />
+            </TableRow>
+        </TableLayout>
+    </HorizontalScrollView>
+</FrameLayout>
+

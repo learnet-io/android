@@ -12,7 +12,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingBottom="50dp"
             android:orientation="vertical">
 
@@ -50,38 +50,16 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:src="@drawable/cat_happy"
+                android:foreground="@drawable/ic_camera_large"
+                android:foregroundGravity="center"
                 app:civ_border_width="0dp"
                 app:civ_border_color="#FFFFFFFF"/>
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:padding="10dp"
-                android:stretchColumns="0">
-
-                <TableRow>
-                    <TextView
-                        android:id="@+id/tv_user_profile_image_upload"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="left"
-                        android:textStyle="bold"
-                        android:drawablePadding="10dp"
-                        android:paddingTop="0dp"
-                        android:drawableStart="@drawable/ic_camera"
-                        android:text="Upload Profile Picture"
-                        />
-                </TableRow>
-            </TableLayout>
 
             <EditText
-                android:id="@+id/tv_user_full_name"
+                android:id="@+id/et_user_full_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_user_profile_image"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -91,10 +69,9 @@
                 android:text="First and Last name"/>
 
             <EditText
-                android:id="@+id/tv_user_job_title"
+                android:id="@+id/et_user_job_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_user_full_name"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -107,7 +84,6 @@
                 android:id="@+id/tl_bio_content_tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_user_job_title"
                 android:layout_margin="20dp"
                 android:stretchColumns="0,1"
                 android:gravity="center"
@@ -139,7 +115,6 @@
                 android:id="@+id/tv_user_portfolio_part_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tl_bio_content_tabs"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -152,7 +127,6 @@
                 android:id="@+id/tv_user_bio_part_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tl_bio_content_tabs"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -162,10 +136,9 @@
                 android:text="Two Truths and a Lie"/>
 
             <EditText
-                android:id="@+id/tv_user_bio_part_1_body"
+                android:id="@+id/et_user_bio_part_1_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_user_bio_part_1"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -178,7 +151,6 @@
                 android:id="@+id/tv_user_bio_part_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_user_bio_part_1_body"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -188,10 +160,9 @@
                 android:text="Something Funny"/>
 
             <EditText
-                android:id="@+id/tv_user_bio_part_2_body"
+                android:id="@+id/et_user_bio_part_2_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_user_bio_part_2"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -205,7 +176,6 @@
                 android:id="@+id/tv_user_bio_part_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_user_bio_part_2_body"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -215,10 +185,9 @@
                 android:text="Interests and Hobbies"/>
 
             <EditText
-                android:id="@+id/tv_user_bio_part_3_body"
+                android:id="@+id/et_user_bio_part_3_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_user_bio_part_3"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
