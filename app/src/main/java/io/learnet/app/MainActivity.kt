@@ -7,17 +7,19 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
-import io.learnet.app.ui.richtext.RichTextFragment
+import io.learnet.app.ui.textinput.RichTextFragment
+import io.learnet.app.ui.textinput.TextInputFragment
+import io.learnet.app.ui.utils.SoftInputAssist
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var chipNavigationBar: ChipNavigationBar
+    private lateinit var softAssist: SoftInputAssist
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -26,11 +28,30 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                RichTextFragment()
+
+//                RichTextFragment()
 //                PostsHomeFragment()
+            TextInputFragment()
             ).commit()
         bottomMenu()
+        softAssist = SoftInputAssist(this, chipNavigationBar.layoutParams.height)
     }
+
+    override fun onResume() {
+        softAssist.onResume()
+        super.onResume()
+    }
+
+    override fun onPause() {
+        softAssist.onPause()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        softAssist.onDestroy()
+        super.onDestroy()
+    }
+
 
     private fun bottomMenu() {
         chipNavigationBar.setOnItemSelectedListener { id ->
@@ -40,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.task -> fragment = IntroGoalsFragment()
                     R.id.group -> fragment = RichTextFragment()
                     R.id.profile -> fragment = PostDetailFragment()
+                    R.id.events -> fragment = TextInputFragment()
                 }
                 if (fragment != null) {
                     supportFragmentManager.beginTransaction()
