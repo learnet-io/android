@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="2dp"
+    android:padding="15dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/i_cancel_submit_top_bar"
+                layout="@layout/reusable_submit_or_cancel"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_event_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:text="Event Title"/>
+
+            <TableLayout
+                android:id="@+id/tl_event_time_share_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:stretchColumns="0">
+                <TableRow>
+                    <EditText
+                        android:id="@+id/et_event_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:maxLines="1"
+                        android:text="Time" />
+                </TableRow>
+                <TableRow>
+                    <EditText
+                        android:id="@+id/et_event_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginStart="10dp"
+                        android:textStyle="normal"
+                        android:textSize="12sp"
+                        android:maxLines="1"
+                        android:text="Location" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/tv_event_description_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/deep_grey"
+                android:text="@string/event_description_header"/>
+
+            <EditText
+                android:id="@+id/et_event_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/deep_grey"
+                android:maxLines="10"
+                android:justificationMode="inter_word"
+                android:hint="@string/event_description_placeholder"/>
+
+            <TableLayout
+                android:id="@+id/tl_event_organizers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/round_corners_with_borders_event_organizer"
+                android:stretchColumns="0,1">
+                <TableRow
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/iv_event_organizer_1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/dog"
+                        app:civ_border_width="0dp"
+                        android:foreground="@drawable/ic_camera"
+                        android:foregroundGravity="center"
+                        app:civ_border_color="#FFFFFFFF"
+                        android:layout_gravity="start"/>
+                </TableRow>
+                <TableRow>
+                    <EditText
+                        android:id="@+id/et_event_organizer_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:layout_gravity="start"
+                        android:text="Host Name" />
+                </TableRow>
+                <TableRow>
+                    <EditText
+                        android:id="@+id/et_event_organizer_1_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:textStyle="normal"
+                        android:textSize="12sp"
+                        android:maxLines="1"
+                        android:layout_gravity="start"
+                        android:text="Title" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    </RelativeLayout>

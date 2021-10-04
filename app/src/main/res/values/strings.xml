@@ -31,5 +31,8 @@
     <string name="upload_profile_picture">Upload Profile Picture</string>
     <string name="lorem_ipsum_short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...</string>
     <string name="event_placeholder">There are no events for</string>
+    <string name="event_description_header">Description</string>
+    <string name="event_resources_header">Resources</string>
+    <string name="event_description_placeholder">Enter the event description here</string>
     <!--    <string name="btn_inspire">Inspire and be inspired</string>-->
 </resources>

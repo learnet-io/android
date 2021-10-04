@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
+import io.learnet.app.ui.events.EventDetailEditFragment
+import io.learnet.app.ui.events.EventDetailFragment
 import io.learnet.app.ui.events.EventListFragment
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
@@ -30,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                EventListFragment()
+//                EventDetailEditFragment()
+                EventDetailFragment()
+//                EventListFragment()
 //                UserProfileEditFragment()
 //                UserProfileFragment()
 //                CreatePostReplyFragment()

@@ -27,7 +27,7 @@
         android:id="@+id/tvPostDetailTitleBookmarkContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ivDetailPosterAvatar"
+        android:layout_toEndOf="@+id/ivDetailPosterAvatar"
         android:stretchColumns="0">
         <TableRow>
             <TextView
