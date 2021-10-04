@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
             .replace(
                 R.id.fragment_container,
 //                EventDetailEditFragment()
-                EventDetailFragment()
-//                EventListFragment()
+//                EventDetailFragment()
+                EventListFragment()
 //                UserProfileEditFragment()
 //                UserProfileFragment()
 //                CreatePostReplyFragment()
