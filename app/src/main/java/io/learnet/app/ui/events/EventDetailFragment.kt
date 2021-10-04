@@ -5,11 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
-import io.learnet.app.adapter.EventAdapter
-import io.learnet.app.ui.utils.SectionHeader
 
 class EventDetailFragment : Fragment() {
     override fun onCreateView(

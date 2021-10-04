@@ -15,7 +15,7 @@ import io.learnet.app.ui.utils.BaseViewHolder
  * @author Bizuwork Melesse
  * created on 9/26/21
  */
-class EventAdapter(private val viewItems: List<*>) :
+class EventListAdapter(private val viewItems: List<*>) :
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     companion object {

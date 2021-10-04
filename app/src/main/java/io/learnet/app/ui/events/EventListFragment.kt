@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
-import io.learnet.app.adapter.EventAdapter
+import io.learnet.app.adapter.EventListAdapter
 import io.learnet.app.ui.utils.SectionHeader
 
 class EventListFragment : Fragment() {
@@ -31,7 +31,7 @@ class EventListFragment : Fragment() {
         } else {
             eventItems.add(EventPlaceholder("${getString(R.string.event_placeholder)} ${events.date}"))
         }
-        val adapter = EventAdapter(eventItems)
+        val adapter = EventListAdapter(eventItems)
         rvEvents.adapter = adapter
         rvEvents.layoutManager = LinearLayoutManager(activity)
     }

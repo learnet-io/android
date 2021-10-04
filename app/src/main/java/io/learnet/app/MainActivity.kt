@@ -7,6 +7,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
 import io.learnet.app.ui.events.EventDetailEditFragment
 import io.learnet.app.ui.events.EventDetailFragment
+import io.learnet.app.ui.events.EventHomeFragment
 import io.learnet.app.ui.events.EventListFragment
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
@@ -32,9 +33,10 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
+                EventHomeFragment()
 //                EventDetailEditFragment()
 //                EventDetailFragment()
-                EventListFragment()
+//                EventListFragment()
 //                UserProfileEditFragment()
 //                UserProfileFragment()
 //                CreatePostReplyFragment()

@@ -7,5 +7,6 @@ package io.learnet.app.ui.events
 data class EventItem(
     val title: String,
     val avatar: String,
-    val summary: String
+    val summary: String,
+    val id: String
 )
