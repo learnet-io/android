@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
 import io.learnet.app.ui.events.EventItem
+import io.learnet.app.ui.events.EventPlaceholder
 import io.learnet.app.ui.utils.SectionHeader
 import io.learnet.app.ui.utils.BaseViewHolder
 
@@ -20,14 +21,22 @@ class EventAdapter(private val viewItems: List<*>) :
     companion object {
         private const val TYPE_EVENT_DATE = 0
         private const val TYPE_EVENT_ITEM = 1
+        private const val TYPE_EVENT_PLACEHOLDER = 2
     }
 
-    inner class EventItemHolder(itemView: View) : BaseViewHolder<EventItem>(itemView) {
+    inner class EventItemViewHolder(itemView: View) : BaseViewHolder<EventItem>(itemView) {
         override fun bind(item: EventItem) {
             val eventTitleView = itemView.findViewById<TextView>(R.id.tv_event_title)
             val eventSummaryView = itemView.findViewById<TextView>(R.id.tv_event_summary)
             eventTitleView.text = item.title
             eventSummaryView.text = item.summary
+        }
+    }
+
+    inner class EventPlaceholderViewHolder(itemView: View) : BaseViewHolder<EventPlaceholder>(itemView) {
+        override fun bind(item: EventPlaceholder) {
+            val eventTitleView = itemView.findViewById<TextView>(R.id.tv_event_placeholder)
+            eventTitleView.text = item.value
         }
     }
 
@@ -41,9 +50,13 @@ class EventAdapter(private val viewItems: List<*>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            TYPE_EVENT_ITEM-> {
+            TYPE_EVENT_PLACEHOLDER -> {
+                val eventPlaceholderView = inflater.inflate(R.layout.event_placeholder, parent, false)
+                EventPlaceholderViewHolder(eventPlaceholderView)
+            }
+            TYPE_EVENT_ITEM -> {
                 val eventItemView = inflater.inflate(R.layout.fragment_event_item, parent, false)
-                EventItemHolder(eventItemView)
+                EventItemViewHolder(eventItemView)
             }
             TYPE_EVENT_DATE -> {
                 val eventDateView = inflater.inflate(R.layout.event_date_header, parent, false)
@@ -54,8 +67,9 @@ class EventAdapter(private val viewItems: List<*>) :
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         when (holder) {
-            is EventItemHolder -> holder.bind(viewItems[position] as EventItem)
+            is EventItemViewHolder -> holder.bind(viewItems[position] as EventItem)
             is EventSectionHeaderViewHolder -> holder.bind(viewItems[position] as SectionHeader)
+            is EventPlaceholderViewHolder -> holder.bind(viewItems[position] as EventPlaceholder)
         }
     }
 
@@ -67,6 +81,7 @@ class EventAdapter(private val viewItems: List<*>) :
         return when (viewItems[position]) {
             is SectionHeader -> TYPE_EVENT_DATE
             is EventItem -> TYPE_EVENT_ITEM
+            is EventPlaceholder -> TYPE_EVENT_PLACEHOLDER
             else -> throw IllegalArgumentException("Invalid type of data $position")
         }
     }

@@ -11,8 +11,7 @@
         android:layout_width="2dp"
         android:layout_height="96dp"
         android:background="@color/aqua"
-        android:layout_marginStart="14dp"
-        android:layout_centerHorizontal="false"/>
+        android:layout_marginStart="14dp"/>
 
     <ImageView
         android:layout_width="32dp"

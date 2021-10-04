@@ -8,8 +8,13 @@ package io.learnet.app.ui.events
  */
 class DemoEventCreator {
     companion object {
+        fun createEmptyEvent(): EventItemListDto {
+            val date = "June 5, 2021"
+            return EventItemListDto(date, ArrayList())
+        }
+
         fun createEventList(numEvents: Int): EventItemListDto {
-            val date = "Jun 5, 2021"
+            val date = "June 5, 2021"
             val events = ArrayList<EventItem>()
             for (i in 1..numEvents) {
                 events.add(
