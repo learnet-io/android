@@ -71,7 +71,7 @@ class EventHomeAdapter(private val viewItems: List<*>) :
                 val eventItemView = inflater.inflate(R.layout.fragment_event_item, parent, false)
                 EventItemViewHolder(eventItemView)
             } TYPE_EVENT_DATE -> {
-                val eventDateView = inflater.inflate(R.layout.event_date_header, parent, false)
+                val eventDateView = inflater.inflate(R.layout.event_section_header, parent, false)
                 EventSectionHeaderViewHolder(eventDateView)
             } else -> throw IllegalArgumentException("Invalid view type")
         }
@@ -80,9 +80,9 @@ class EventHomeAdapter(private val viewItems: List<*>) :
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         when (holder) {
             is EventCalendarViewHolder -> holder.bind(viewItems[position] as EventCalendar)
-            is EventListAdapter.EventItemViewHolder -> holder.bind(viewItems[position] as EventItem)
-            is EventListAdapter.EventSectionHeaderViewHolder -> holder.bind(viewItems[position] as SectionHeader)
-            is EventListAdapter.EventPlaceholderViewHolder -> holder.bind(viewItems[position] as EventPlaceholder)
+            is EventItemViewHolder -> holder.bind(viewItems[position] as EventItem)
+            is EventSectionHeaderViewHolder -> holder.bind(viewItems[position] as SectionHeader)
+            is EventPlaceholderViewHolder -> holder.bind(viewItems[position] as EventPlaceholder)
         }
     }
 

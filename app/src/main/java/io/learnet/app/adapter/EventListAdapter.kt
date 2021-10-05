@@ -59,7 +59,7 @@ class EventListAdapter(private val viewItems: List<*>) :
                 EventItemViewHolder(eventItemView)
             }
             TYPE_EVENT_DATE -> {
-                val eventDateView = inflater.inflate(R.layout.event_date_header, parent, false)
+                val eventDateView = inflater.inflate(R.layout.event_section_header, parent, false)
                 EventSectionHeaderViewHolder(eventDateView)
             } else -> throw IllegalArgumentException("Invalid view type")
         }

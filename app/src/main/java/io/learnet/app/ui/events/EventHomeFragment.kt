@@ -25,6 +25,7 @@ class EventHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val rvEventHome = view?.findViewById(R.id.rv_event_home) as RecyclerView
         val eventHomeItems = ArrayList<Any>()
+        eventHomeItems.add(SectionHeader("Discover Events Here"))
         eventHomeItems.add(DemoEventCreator.createEventHomeCalendar())
         if (events.events.size > 0) {
             eventHomeItems.add(SectionHeader(events.date))
