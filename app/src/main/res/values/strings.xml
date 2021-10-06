@@ -34,5 +34,8 @@
     <string name="event_description_header">Description</string>
     <string name="event_resources_header">Resources</string>
     <string name="event_description_placeholder">Enter the event description here</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="learnet_byline">We help you supercharge your professional skills with daily tasks and a community of like-minded learners.</string>
+    <string name="welcome_to_learnet">Welcome to LearNet</string>
     <!--    <string name="btn_inspire">Inspire and be inspired</string>-->
 </resources>
