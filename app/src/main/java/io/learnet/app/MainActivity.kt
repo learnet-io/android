@@ -9,6 +9,8 @@ import io.learnet.app.ui.events.EventDetailEditFragment
 import io.learnet.app.ui.events.EventDetailFragment
 import io.learnet.app.ui.events.EventHomeFragment
 import io.learnet.app.ui.events.EventListFragment
+import io.learnet.app.ui.match.MatchDetailFragment
+import io.learnet.app.ui.match.MatchIntroFragment
 import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostsHomeFragment
 import io.learnet.app.ui.posts.CreatePostFragment
@@ -33,7 +35,9 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                EventHomeFragment()
+                MatchDetailFragment(),
+//                MatchIntroFragment()
+//                EventHomeFragment()
 //                EventDetailEditFragment()
 //                EventDetailFragment()
 //                EventListFragment()
@@ -72,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.task -> fragment = IntroGoalsFragment()
                     R.id.group -> fragment = CreatePostFragment()
                     R.id.profile -> fragment = PostDetailFragment()
-                    R.id.events -> fragment = EventListFragment()
+                    R.id.events -> fragment = EventHomeFragment()
                 }
                 if (fragment != null) {
                     supportFragmentManager.beginTransaction()
