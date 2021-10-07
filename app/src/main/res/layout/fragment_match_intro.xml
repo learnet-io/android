@@ -39,7 +39,6 @@
             android:layout_marginTop="10dp"
             android:text="We make learning skills easy and fun by pairing you up with learners with similar interests as you. So let's match you up with your future friends!"/>
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="20dp"
+                android:backgroundTint="@color/aqua"
                 android:text="Let's Go"/>
 
         </RelativeLayout>
