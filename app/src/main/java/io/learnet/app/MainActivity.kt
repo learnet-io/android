@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                LoginFragment()
+                IntroGoalsFragment()
+//                LoginFragment()
 //                MatchDetailFragment(),
 //                MatchIntroFragment()
 //                EventHomeFragment()

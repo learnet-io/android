@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IntroGoalsFragment">
+
     <RelativeLayout
         android:id="@+id/rlIntroGoals"
         android:layout_marginTop="80dp"
@@ -18,8 +18,8 @@
         android:textAlignment="center"
         android:fontFamily="sans-serif-black"
         android:textSize="25sp"
-        android:textColor="@color/design_default_color_primary"
-        android:text="TextView" />
+        android:textColor="@color/deep_grey"
+        android:text="@string/intro_goal_heading" />
     <TextView
         android:id="@+id/tvIntroTextHeadingSecondLine"
         android:layout_below="@+id/tvIntroTextHeadingFirstLine"
@@ -28,8 +28,8 @@
         android:textAlignment="center"
         android:fontFamily="sans-serif-black"
         android:textSize="25sp"
-        android:textColor="@color/design_default_color_primary"
-        android:text="TextView" />
+        android:textColor="@color/deep_grey"
+        android:text="@string/intro_goal_subheading" />
     <TextView
         android:id="@+id/tvIntroTextSubheading"
         android:layout_below="@+id/tvIntroTextHeadingSecondLine"
@@ -40,12 +40,12 @@
         android:fontFamily="sans-serif"
         android:textSize="15sp"
         android:textColor="@color/black"
-        android:text="TextView" />
+        android:text="@string/intro_goal_what_are_your_goals" />
     <TableLayout
         android:id="@+id/tlButtonGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:stretchColumns="0,1"
         android:layout_below="@+id/tvIntroTextSubheading">
         <TableRow
@@ -157,22 +157,8 @@
                 android:text="Button" />
         </TableRow>
     </TableLayout>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/goal_submit"
-            android:layout_below="@+id/tlButtonGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="@dimen/fab_bottom_margin"
-            android:layout_alignParentRight="true"
-            android:contentDescription="@string/submit"
-            android:src="@drawable/ic_action_chevron"
-            app:tint="@android:color/white"
-            app:backgroundTint="@color/design_default_color_primary"
-            app:elevation="0dp"
-            app:fabSize="normal" />
     </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/i_fab"
+        layout="@layout/reusable_fab_next" />
+</FrameLayout>

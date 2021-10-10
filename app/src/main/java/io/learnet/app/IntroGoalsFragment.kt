@@ -81,7 +81,7 @@ class IntroGoalsFragment : Fragment() {
             it?.textSize = 12f
             it?.setPadding(10, 4, 10 ,4)
         }
-        val fab = view?.findViewById<FloatingActionButton>(R.id.goal_submit)
+//        val fab = view?.findViewById<FloatingActionButton>(R.id.goal_submit)
 //        fab?.setOnClickListener()
     }
 

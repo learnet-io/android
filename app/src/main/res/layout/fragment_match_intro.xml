@@ -37,24 +37,11 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:layout_marginTop="10dp"
-            android:text="We make learning skills easy and fun by pairing you up with learners with similar interests as you. So let's match you up with your future friends!"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/aqua"
-                android:text="Let's Go"/>
-
-        </RelativeLayout>
+            android:text="We make learning skills easy and fun by pairing you up with learners with similar interests as you. So let's match you up with your future buddies!"/>
 
     </LinearLayout>
+    <include
+        android:id="@+id/i_fab"
+        layout="@layout/reusable_fab_next" />
 
 </FrameLayout>
