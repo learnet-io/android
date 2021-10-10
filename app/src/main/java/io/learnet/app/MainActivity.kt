@@ -9,6 +9,7 @@ import io.learnet.app.ui.events.EventDetailEditFragment
 import io.learnet.app.ui.events.EventDetailFragment
 import io.learnet.app.ui.events.EventHomeFragment
 import io.learnet.app.ui.events.EventListFragment
+import io.learnet.app.ui.home.HomeFragment
 import io.learnet.app.ui.login.LoginFragment
 import io.learnet.app.ui.match.IntroGoalsFragment
 import io.learnet.app.ui.match.MatchDetailFragment
@@ -34,10 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         chipNavigationBar = findViewById(R.id.bottom_nav)
         chipNavigationBar.setItemSelected(R.id.bottom_nav, true)
+
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                IntroGoalsFragment()
+                HomeFragment()
+//                IntroGoalsFragment()
 //                LoginFragment()
 //                MatchDetailFragment(),
 //                MatchIntroFragment()
@@ -54,6 +57,7 @@ class MainActivity : AppCompatActivity() {
             ).commit()
         bottomMenu()
         softAssist = SoftInputAssist(this, chipNavigationBar.layoutParams.height)
+
     }
 
     override fun onResume() {
@@ -76,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         chipNavigationBar.setOnItemSelectedListener { id ->
                 var fragment: Fragment? = null
                 when (id) {
-                    R.id.home -> fragment = PostsHomeFragment()
+                    R.id.home -> fragment = HomeFragment()
                     R.id.task -> fragment = IntroGoalsFragment()
                     R.id.group -> fragment = CreatePostFragment()
                     R.id.profile -> fragment = PostDetailFragment()

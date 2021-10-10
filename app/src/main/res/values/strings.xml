@@ -8,14 +8,14 @@
     <string name="intro_goal_heading">LearNet is a daily</string>
     <string name="intro_goal_subheading">skill-learning ritual</string>
     <string name="intro_goal_what_are_your_goals">What are your goals?</string>
-    <string name="btn_improve_thinking">Improve creative thinking</string>
+    <string name="btn_improve_thinking">Think creatively</string>
     <string name="btn_meet_people">Meet creative people</string>
     <string name="btn_reduce_stress">Reduce stress</string>
-    <string name="btn_express_myself">Learn to express myself better</string>
-    <string name="btn_manage_emotions">Manage negative emotions</string>
-    <string name="btn_become_confident">Become more confident</string>
+    <string name="btn_express_myself">Express myself better</string>
+    <string name="btn_manage_emotions">Manage emotions</string>
+    <string name="btn_become_confident">Gain confidence</string>
     <string name="btn_communication">Communicate well</string>
-    <string name="btn_inspire">Inspire and be inspired</string>
+    <string name="btn_inspire">Become a leader</string>
     <string name="post_section_recent_header">Recent Posts</string>
     <string name="post_detail_section_header">View Post</string>
 
