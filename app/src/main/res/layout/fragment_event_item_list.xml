@@ -12,7 +12,7 @@
     android:layout_marginTop="0dp"
     android:layout_marginBottom="@dimen/bottom_margin"
     android:layout_marginStart="10dp"
-    tools:context=".ui.events.EventListFragment"
+    tools:context=".ui.event.EventListFragment"
     tools:listitem="@layout/fragment_event_item"/>
 
     <include

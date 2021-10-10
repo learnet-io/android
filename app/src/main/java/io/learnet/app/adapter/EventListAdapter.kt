@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
-import io.learnet.app.ui.events.EventItem
-import io.learnet.app.ui.events.EventPlaceholder
+import io.learnet.app.ui.event.EventItem
+import io.learnet.app.ui.event.EventPlaceholder
 import io.learnet.app.ui.utils.SectionHeader
 import io.learnet.app.ui.utils.BaseViewHolder
 

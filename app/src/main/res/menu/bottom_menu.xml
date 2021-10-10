@@ -16,11 +16,6 @@
         app:cnb_iconColor="@color/search" />
 
     <item
-        android:id="@+id/group"
-        android:icon="@drawable/ic_group"
-        android:title="Groups"
-        app:cnb_iconColor="@color/like" />
-    <item
         android:id="@+id/events"
         android:icon="@drawable/ic_calendar"
         android:title="Events"

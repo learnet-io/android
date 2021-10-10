@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
     <ImageView
         android:id="@+id/iv_placeholder_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:padding="20dp"
-        android:src="@drawable/ic_undraw_schedule_meeting"/>
+        android:src="@drawable/ic_undraw_teacher"/>
 
     <TextView
-        android:id="@+id/tv_event_placeholder"
+        android:id="@+id/tv_task_placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="-150dp"
         android:layout_marginStart="20dp"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:textStyle="normal"
         android:textSize="16sp"
-        android:text="@string/event_placeholder"/>
+        android:text="Sorry, there are no tasks for today."/>
 
     </LinearLayout>
 </FrameLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_marginTop="10dp"
+android:background="@color/white"
+tools:context=".ui.task.TaskHomeFragment">
+
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv_task_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/bottom_margin" />
+
+<include
+    android:id="@+id/i_fab"
+    layout="@layout/reusable_fab_plus_sign" />
+</FrameLayout>

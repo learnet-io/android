@@ -1,4 +1,4 @@
-package io.learnet.app.ui.events
+package io.learnet.app.ui.event
 
 /**
  * @author Bizuwork Melesse

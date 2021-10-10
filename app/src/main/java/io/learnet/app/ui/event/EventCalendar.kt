@@ -1,6 +1,4 @@
-package io.learnet.app.ui.events
-
-import java.time.Month
+package io.learnet.app.ui.event
 
 data class EventCalendar(
     val month: Short,

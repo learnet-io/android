@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
-import io.learnet.app.ui.events.EventCalendar
-import io.learnet.app.ui.events.EventItem
-import io.learnet.app.ui.events.EventPlaceholder
+import io.learnet.app.ui.event.EventCalendar
+import io.learnet.app.ui.event.EventItem
+import io.learnet.app.ui.event.EventPlaceholder
 import io.learnet.app.ui.utils.SectionHeader
 import io.learnet.app.ui.utils.BaseViewHolder
 
@@ -28,10 +28,7 @@ class EventHomeAdapter(private val viewItems: List<*>) :
 
     inner class EventCalendarViewHolder(itemView: View) : BaseViewHolder<EventCalendar>(itemView) {
         override fun bind(item: EventCalendar) {
-//            val eventTitleView = itemView.findViewById<TextView>(R.id.tv_event_title)
-//            val eventSummaryView = itemView.findViewById<TextView>(R.id.tv_event_summary)
-//            eventTitleView.text = item.title
-//            eventSummaryView.text = item.summary
+            // TODO: populate the calendar here
         }
     }
 

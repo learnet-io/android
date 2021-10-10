@@ -5,20 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.databinding.ActivityMainBinding
-import io.learnet.app.ui.events.EventDetailEditFragment
-import io.learnet.app.ui.events.EventDetailFragment
-import io.learnet.app.ui.events.EventHomeFragment
-import io.learnet.app.ui.events.EventListFragment
+import io.learnet.app.ui.event.EventHomeFragment
 import io.learnet.app.ui.home.HomeFragment
-import io.learnet.app.ui.login.LoginFragment
 import io.learnet.app.ui.match.IntroGoalsFragment
-import io.learnet.app.ui.match.MatchDetailFragment
-import io.learnet.app.ui.match.MatchIntroFragment
-import io.learnet.app.ui.posts.PostDetailFragment
-import io.learnet.app.ui.posts.PostsHomeFragment
-import io.learnet.app.ui.posts.CreatePostFragment
-import io.learnet.app.ui.posts.CreatePostReplyFragment
-import io.learnet.app.ui.textinput.TextInputFragment
+import io.learnet.app.ui.profile.UserProfileFragment
+import io.learnet.app.ui.task.TaskHomeFragment
 import io.learnet.app.ui.utils.SoftInputAssist
 
 
@@ -39,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                HomeFragment()
+                TaskHomeFragment()
+//                HomeFragment()
 //                IntroGoalsFragment()
 //                LoginFragment()
 //                MatchDetailFragment(),
@@ -82,9 +74,8 @@ class MainActivity : AppCompatActivity() {
                 when (id) {
                     R.id.home -> fragment = HomeFragment()
                     R.id.task -> fragment = IntroGoalsFragment()
-                    R.id.group -> fragment = CreatePostFragment()
-                    R.id.profile -> fragment = PostDetailFragment()
                     R.id.events -> fragment = EventHomeFragment()
+                    R.id.profile -> fragment = UserProfileFragment()
                 }
                 if (fragment != null) {
                     supportFragmentManager.beginTransaction()

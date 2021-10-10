@@ -1,4 +1,4 @@
-package io.learnet.app.ui.events
+package io.learnet.app.ui.event
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
