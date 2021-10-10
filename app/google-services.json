@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "635147411263",
+    "project_id": "learnet-747be",
+    "storage_bucket": "learnet-747be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635147411263:android:436bd9ace032e547c77d8a",
+        "android_client_info": {
+          "package_name": "io.learnet.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635147411263-tnhfgliuobn30gjjlsneov254kp5fgmd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.learnet.app",
+            "certificate_hash": "707042412d8fe791435136a72d510002b2912209"
+          }
+        },
+        {
+          "client_id": "635147411263-lkhdgrv877m7osue122lnuaaphbaep25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfCvjzMTVXbQF0-CAsDwqaqJ0rfz7HHDE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635147411263-lkhdgrv877m7osue122lnuaaphbaep25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

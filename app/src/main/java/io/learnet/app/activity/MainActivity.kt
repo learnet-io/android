@@ -1,13 +1,15 @@
-package io.learnet.app
+package io.learnet.app.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
+import io.learnet.app.R
 import io.learnet.app.databinding.ActivityMainBinding
 import io.learnet.app.ui.event.EventHomeFragment
 import io.learnet.app.ui.home.HomeFragment
-import io.learnet.app.ui.match.IntroGoalsFragment
 import io.learnet.app.ui.profile.UserProfileFragment
 import io.learnet.app.ui.task.TaskHomeFragment
 import io.learnet.app.ui.utils.SoftInputAssist
@@ -18,11 +20,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var chipNavigationBar: ChipNavigationBar
     private lateinit var softAssist: SoftInputAssist
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         chipNavigationBar = findViewById(R.id.bottom_nav)
         chipNavigationBar.setItemSelected(R.id.bottom_nav, true)
@@ -30,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                TaskHomeFragment()
-//                HomeFragment()
+//                TaskHomeFragment()
+                HomeFragment()
 //                IntroGoalsFragment()
 //                LoginFragment()
 //                MatchDetailFragment(),
@@ -67,13 +71,20 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
+    override fun onStart() {
+        super.onStart()
+        if (firebaseAuth.currentUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+    }
 
     private fun bottomMenu() {
         chipNavigationBar.setOnItemSelectedListener { id ->
                 var fragment: Fragment? = null
                 when (id) {
                     R.id.home -> fragment = HomeFragment()
-                    R.id.task -> fragment = IntroGoalsFragment()
+                    R.id.task -> fragment = TaskHomeFragment()
                     R.id.events -> fragment = EventHomeFragment()
                     R.id.profile -> fragment = UserProfileFragment()
                 }

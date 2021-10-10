@@ -35,7 +35,11 @@
     <string name="event_resources_header">Resources</string>
     <string name="event_description_placeholder">Enter the event description here</string>
     <string name="continue_with_google">Sign in with Google</string>
-    <string name="learnet_byline">We help you supercharge your professional skills with daily tasks and a community of like-minded learners.</string>
+    <string name="learnet_byline">We help you supercharge your professional skills with daily tasks in a community of like-minded learners.</string>
     <string name="welcome_to_learnet">Welcome to LearNet</string>
     <!--    <string name="btn_inspire">Inspire and be inspired</string>-->
+
+
+    <!--    Login -->
+    <string name="login_unknown_failure">"Sorry, something went wrong. Please contact us at learnet.io.user@gmail.com for help."</string>
 </resources>
