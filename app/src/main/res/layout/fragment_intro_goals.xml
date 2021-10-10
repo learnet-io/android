@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntroGoalsFragment">
+    tools:context=".ui.match.IntroGoalsFragment">
 
     <RelativeLayout
         android:id="@+id/rlIntroGoals"
@@ -55,24 +56,26 @@
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="14dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
+                android:drawablePadding="5dp"
+                app:drawableLeftCompat="@drawable/ic_brain"
                 android:text="Button 1" />
             <TextView
                 android:id="@+id/btn_meet_people"
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="14dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
+                android:drawablePadding="5dp"
+                app:drawableLeftCompat="@drawable/ic_people"
                 android:text="Button" />
         </TableRow>
         <TableRow
@@ -82,24 +85,26 @@
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="14dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
+                android:drawablePadding="5dp"
+                app:drawableLeftCompat="@drawable/ic_meditate"
                 android:text="Button" />
             <TextView
                 android:id="@+id/btn_express_myself"
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="14dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
+                android:drawablePadding="5dp"
+                app:drawableLeftCompat="@drawable/ic_sunglasses"
                 android:text="Button" />
         </TableRow>
         <TableRow
@@ -109,51 +114,55 @@
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="14dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
+                app:drawableLeftCompat="@drawable/ic_rain"
+                android:drawablePadding="5dp"
                 android:text="Button" />
             <TextView
                 android:id="@+id/btn_become_confident"
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="14dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
-                android:text="Button" />
+                android:drawablePadding="5dp"
+                android:text="Button"
+                app:drawableLeftCompat="@drawable/ic_superman" />
         </TableRow>
         <TableRow
             android:layout_marginBottom="15dp">
             <TextView
-                android:id="@+id/btn_understand_myself"
+                android:id="@+id/btn_communication"
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="14dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
+                android:drawablePadding="5dp"
+                app:drawableLeftCompat="@drawable/ic_megaphone"
                 android:text="Button" />
             <TextView
                 android:id="@+id/btn_inspire"
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="14dp"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_baseline_beenhere_24"
+                android:drawablePadding="5dp"
+                app:drawableLeftCompat="@drawable/ic_speech"
                 android:text="Button" />
         </TableRow>
     </TableLayout>

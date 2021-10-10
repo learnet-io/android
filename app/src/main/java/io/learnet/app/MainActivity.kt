@@ -10,6 +10,7 @@ import io.learnet.app.ui.events.EventDetailFragment
 import io.learnet.app.ui.events.EventHomeFragment
 import io.learnet.app.ui.events.EventListFragment
 import io.learnet.app.ui.login.LoginFragment
+import io.learnet.app.ui.match.IntroGoalsFragment
 import io.learnet.app.ui.match.MatchDetailFragment
 import io.learnet.app.ui.match.MatchIntroFragment
 import io.learnet.app.ui.posts.PostDetailFragment
