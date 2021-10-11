@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -19,7 +20,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.shobhitpuri.custombuttons.GoogleSignInButton
 import io.learnet.app.R
+import io.learnet.app.data.dto.User
+import io.learnet.app.data.repo.AuthRepo
 import io.learnet.app.databinding.ActivityLoginBinding
+import io.learnet.app.model.UserAuthViewModel
 
 
 /**
@@ -32,12 +36,32 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var mFirebaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
+    private lateinit var authRepo: AuthRepo
+    private lateinit var userAuthViewModel: UserAuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initSignInButton()
+        initAuthViewModel();
+        initGoogleSignInClient()
+        initProgressDialog()
+    }
 
+    private fun initProgressDialog() {
+        // Initialize progress bar
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Please wait");
+        progressDialog.setCancelable(false);
+    }
+
+    private fun initAuthViewModel() {
+        authRepo = AuthRepo()
+        userAuthViewModel = ViewModelProvider(this)[UserAuthViewModel::class.java]
+    }
+
+    private fun initGoogleSignInClient() {
         // Setup Google Sign In options
         val gso= GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -46,14 +70,11 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         mFirebaseAuth = FirebaseAuth.getInstance()
+    }
 
+    private fun initSignInButton() {
         val signInBtn = findViewById<GoogleSignInButton>(R.id.btn_google_sign_in)
         signInBtn.setOnClickListener(this)
-
-        // Initialize progress bar
-        progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Please wait");
-        progressDialog.setCancelable(false);
     }
 
 
@@ -70,7 +91,16 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             try {
                 val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account)
+                userAuthViewModel.signInWithGoogle(GoogleAuthProvider.getCredential(account.idToken, null),
+                    this::authFailure)
+                userAuthViewModel.authenticatedUserLiveData.observe(this)  { authenticatedUser ->
+                    if (authenticatedUser.isNewUser) {
+                        userAuthViewModel.createUser(authenticatedUser, this::authFailure)
+                    }
+                    goToMainActivity(authenticatedUser)
+                }
+
+//                firebaseAuthWithGoogle(account)
             } catch (e: ApiException) {
                 e.printStackTrace()
                 authFailure()
@@ -78,27 +108,57 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun goToMainActivity(authenticatedUser: User) {
+        progressDialog.dismiss()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra(AuthRepo.USER, authenticatedUser as Bundle)
+        startActivity(intent)
+        finish()
+    }
+
     private fun signIn() {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
         startForResult.launch(signInIntent)
     }
 
-    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        mFirebaseAuth.signInWithCredential(credential)
-            .addOnSuccessListener(this) {
-                progressDialog.dismiss()
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            }
-            .addOnFailureListener(this) { e ->
-                    e.printStackTrace()
-                    authFailure()
-            }
-    }
-
     private fun authFailure() {
         Toast.makeText(this, getString(R.string.login_unknown_failure), Toast.LENGTH_LONG).show()
     }
+
+//    private fun signInWithGoogleAuthCredential(googleAuthCredential: AuthCredential) {
+//        authViewModel.signInWithGoogle(googleAuthCredential)
+//        authViewModel.authenticatedUserLiveData.observe(this) { authenticatedUser ->
+//            if (authenticatedUser.isNew) {
+//                createNewUser(authenticatedUser)
+//            } else {
+//                goToMainActivity(authenticatedUser)
+//            }
+//        }
+//    }
+
+//    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
+//        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
+//        mFirebaseAuth.signInWithCredential(credential)
+//            .addOnSuccessListener(this) {
+//                progressDialog.dismiss()
+//                startActivity(Intent(this, MainActivity::class.java))
+//                finish()
+//            }
+//            .addOnFailureListener(this) { e ->
+//                    e.printStackTrace()
+//                    authFailure()
+//            }
+//    }
+//
+//    private fun createNewUser(authenticatedUser: User) {
+//        userAuthViewModel.createUser(authenticatedUser)
+//        userAuthViewModel.createdUserLiveData.observe(this) { user ->
+//            if (user.isCreated) {
+//                toastMessage(user.name)
+//            }
+//        }
+//    }
+
+
 
 }

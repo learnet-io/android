@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import io.learnet.app.R
+import io.learnet.app.data.dto.User
+import io.learnet.app.data.repo.AuthRepo
 import io.learnet.app.databinding.ActivityMainBinding
 import io.learnet.app.ui.event.EventHomeFragment
 import io.learnet.app.ui.home.HomeFragment
@@ -15,7 +17,7 @@ import io.learnet.app.ui.task.TaskHomeFragment
 import io.learnet.app.ui.utils.SoftInputAssist
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var chipNavigationBar: ChipNavigationBar
@@ -26,10 +28,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        firebaseAuth = FirebaseAuth.getInstance()
+        initFirebase()
+        initNavigation()
+        val user: User = getUserFromIntent()
+        
 
-        chipNavigationBar = findViewById(R.id.bottom_nav)
-        chipNavigationBar.setItemSelected(R.id.bottom_nav, true)
+        
 
         supportFragmentManager.beginTransaction()
             .replace(
@@ -51,9 +55,23 @@ class MainActivity : AppCompatActivity() {
 //                PostsHomeFragment()
 //            TextInputFragment()
             ).commit()
+        
+
+    }
+
+    private fun getUserFromIntent(): User {
+        return (intent.getSerializableExtra(AuthRepo.USER) as User?)!!
+    }
+
+    private fun initNavigation() {
+        chipNavigationBar = findViewById(R.id.bottom_nav)
+        chipNavigationBar.setItemSelected(R.id.bottom_nav, true)
         bottomMenu()
         softAssist = SoftInputAssist(this, chipNavigationBar.layoutParams.height)
+    }
 
+    private fun initFirebase() {
+        firebaseAuth = FirebaseAuth.getInstance()
     }
 
     override fun onResume() {
@@ -73,10 +91,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if (firebaseAuth.currentUser == null) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-        }
+        goToLoginScreen()
     }
 
     private fun bottomMenu() {
@@ -95,6 +110,18 @@ class MainActivity : AppCompatActivity() {
                             fragment
                         ).commit()
                 }
+        }
+    }
+
+    override fun onAuthStateChanged(p0: FirebaseAuth) {
+        // If a user session has expired or user not found, re-direct them to login screen
+        goToLoginScreen()
+    }
+
+    private fun goToLoginScreen() {
+        if (firebaseAuth.currentUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 }
