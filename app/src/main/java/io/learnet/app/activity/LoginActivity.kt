@@ -94,13 +94,12 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
                 userAuthViewModel.signInWithGoogle(GoogleAuthProvider.getCredential(account.idToken, null),
                     this::authFailure)
                 userAuthViewModel.authenticatedUserLiveData.observe(this)  { authenticatedUser ->
+                    userAuthViewModel.createUser(authenticatedUser, this::authFailure)
                     if (authenticatedUser.isNewUser) {
                         userAuthViewModel.createUser(authenticatedUser, this::authFailure)
                     }
                     goToMainActivity(authenticatedUser)
                 }
-
-//                firebaseAuthWithGoogle(account)
             } catch (e: ApiException) {
                 e.printStackTrace()
                 authFailure()
@@ -109,9 +108,9 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun goToMainActivity(authenticatedUser: User) {
-        progressDialog.dismiss()
+//        progressDialog.dismiss()
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra(AuthRepo.USER, authenticatedUser as Bundle)
+        intent.putExtra(AuthRepo.USER, authenticatedUser)
         startActivity(intent)
         finish()
     }
@@ -124,41 +123,4 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
     private fun authFailure() {
         Toast.makeText(this, getString(R.string.login_unknown_failure), Toast.LENGTH_LONG).show()
     }
-
-//    private fun signInWithGoogleAuthCredential(googleAuthCredential: AuthCredential) {
-//        authViewModel.signInWithGoogle(googleAuthCredential)
-//        authViewModel.authenticatedUserLiveData.observe(this) { authenticatedUser ->
-//            if (authenticatedUser.isNew) {
-//                createNewUser(authenticatedUser)
-//            } else {
-//                goToMainActivity(authenticatedUser)
-//            }
-//        }
-//    }
-
-//    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-//        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-//        mFirebaseAuth.signInWithCredential(credential)
-//            .addOnSuccessListener(this) {
-//                progressDialog.dismiss()
-//                startActivity(Intent(this, MainActivity::class.java))
-//                finish()
-//            }
-//            .addOnFailureListener(this) { e ->
-//                    e.printStackTrace()
-//                    authFailure()
-//            }
-//    }
-//
-//    private fun createNewUser(authenticatedUser: User) {
-//        userAuthViewModel.createUser(authenticatedUser)
-//        userAuthViewModel.createdUserLiveData.observe(this) { user ->
-//            if (user.isCreated) {
-//                toastMessage(user.name)
-//            }
-//        }
-//    }
-
-
-
 }

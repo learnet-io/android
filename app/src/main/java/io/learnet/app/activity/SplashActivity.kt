@@ -1,5 +1,6 @@
 package io.learnet.app.activity
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,13 +14,15 @@ import io.learnet.app.model.SplashViewModel
 class SplashActivity : AppCompatActivity() {
     private lateinit var splashViewModel: SplashViewModel
     private lateinit var binding: ActivitySplashBinding
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initSplashViewModel();
-        checkIfUserIsAuthenticated();
+        checkIfUserIsAuthenticated()
+        initProgressDialog()
     }
 
     private fun checkIfUserIsAuthenticated() {
@@ -29,14 +32,19 @@ class SplashActivity : AppCompatActivity() {
                 goToLoginActivity()
                 finish()
             } else {
-                getUserFromDatabase(user.uid)
+                progressDialog.show()
+                getUserFromDatabase(user)
             }
         }
     }
 
-    private fun getUserFromDatabase(uid: String) {
-        splashViewModel.setUid(uid)
+    private fun getUserFromDatabase(user: User) {
+        splashViewModel.setUid(user.uid)
+        // TODO: get user profile, settings, and other details from the server
+
+        // Get user from firestore
         splashViewModel.userLiveData.observe(this) { user ->
+            progressDialog.dismiss()
             goToMainActivity(user)
             finish()
         }
@@ -44,7 +52,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun goToMainActivity(user: User) {
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra(AuthRepo.USER, user as Bundle)
+        intent.putExtra(AuthRepo.USER, user)
         startActivity(intent)
         finish()
     }
@@ -57,5 +65,12 @@ class SplashActivity : AppCompatActivity() {
 
     private fun initSplashViewModel() {
         splashViewModel = ViewModelProvider(this).get(SplashViewModel::class.java)
+    }
+
+    private fun initProgressDialog() {
+        // Initialize progress bar
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Please wait")
+        progressDialog.setCancelable(false)
     }
 }

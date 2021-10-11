@@ -1,6 +1,7 @@
 package io.learnet.app.data.repo
 
 import androidx.lifecycle.MutableLiveData
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -35,7 +36,8 @@ class AuthRepo {
                     val uid = firebaseUser.uid
                     val name = firebaseUser.displayName
                     val email = firebaseUser.email
-                    val user = User(uid, name!!, email!!, isNewUser, !isNewUser, true)
+                    val user = User(uid, name!!, email!!, isNewUser, !isNewUser, true,
+                    null)
                     userLiveData.value = user
                 }
             } else {
@@ -55,6 +57,7 @@ class AuthRepo {
                     uidRef.set(authenticatedUser).addOnCompleteListener { userCreationTask ->
                         if (userCreationTask.isSuccessful) {
                             authenticatedUser.isCreated = true
+                            authenticatedUser.createdDt = Timestamp.now()
                             newUserMutableLiveData.setValue(authenticatedUser)
                         } else {
                             errorCallback()
@@ -69,24 +72,4 @@ class AuthRepo {
         }
         return newUserMutableLiveData
     }
-
-
-//    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-//        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-//        mFirebaseAuth.signInWithCredential(credential)
-//            .addOnSuccessListener(this) {
-//                progressDialog.dismiss()
-//                startActivity(Intent(this, MainActivity::class.java))
-//                finish()
-//            }
-//            .addOnFailureListener(this) { e ->
-//                e.printStackTrace()
-//                authFailure()
-//            }
-//    }
-
-//    private fun authFailure() {
-//        Toast.makeText(this, getString(R.string.login_unknown_failure), Toast.LENGTH_LONG).show()
-//    }
-
 }

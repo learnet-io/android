@@ -14,12 +14,12 @@ import io.learnet.app.data.dto.User
  * created on 10/10/21
  */
 class SplashRepo {
-
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val user: User = User("", "", "",
         isNewUser = false,
         isCreated = false,
-        isAuthenticated = false
+        isAuthenticated = false,
+        null
     )
     private val rootRef = FirebaseFirestore.getInstance()
     private val usersRef = rootRef.collection(AuthRepo.USER)
@@ -41,8 +41,9 @@ class SplashRepo {
 
     fun addUserToLiveData(uid: String): MutableLiveData<User> {
         val userMutableLiveData: MutableLiveData<User> = MutableLiveData<User>()
-        usersRef.document(uid!!).get().addOnCompleteListener { userTask: Task<DocumentSnapshot> ->
-            if (userTask.isSuccessful) {
+        usersRef.document(uid).get()
+            .addOnCompleteListener { userTask: Task<DocumentSnapshot> ->
+                if (userTask.isSuccessful) {
                 val document = userTask.result
                 if (document.exists()) {
                     val user: User? = document.toObject(User::class.java)

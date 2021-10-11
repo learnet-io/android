@@ -2,6 +2,7 @@ package io.learnet.app.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
@@ -31,9 +32,7 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
         initFirebase()
         initNavigation()
         val user: User = getUserFromIntent()
-        
-
-        
+        greetUser(user)
 
         supportFragmentManager.beginTransaction()
             .replace(
@@ -57,6 +56,11 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
             ).commit()
         
 
+    }
+
+    private fun greetUser(user: User) {
+        val msg = "Hi, ${user.name}, welcome to LearNet!"
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 
     private fun getUserFromIntent(): User {
