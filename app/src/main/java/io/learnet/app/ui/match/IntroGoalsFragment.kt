@@ -2,23 +2,17 @@ package io.learnet.app.ui.match
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.DrawableCompat
-import androidx.core.view.marginBottom
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.learnet.app.R
 
-class IntroGoalsFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+class IntroGoalsFragment : Fragment(), View.OnClickListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +25,12 @@ class IntroGoalsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initializeButtons()
         initializeText()
+        initFabListener()
+    }
+
+    private fun initFabListener() {
+        val fab = view?.findViewById<FloatingActionButton>(R.id.i_fab_intro_goals)
+        fab?.setOnClickListener(this)
     }
 
     private fun initializeButtons() {
@@ -75,5 +75,11 @@ class IntroGoalsFragment : Fragment() {
         subHeading?.text = getString(R.string.intro_goal_subheading)
         subSubHeading?.text = getString(R.string.intro_goal_what_are_your_goals)
         subSubHeading?.setTextColor(Color.BLACK)
+    }
+
+    override fun onClick(p0: View?) {
+        when (p0!!.id) {
+            R.id.i_fab_intro_goals -> findNavController().navigate(IntroGoalsFragmentDirections.actionIntroGoalsFragmentToMatchIntroFragment())
+        }
     }
 }

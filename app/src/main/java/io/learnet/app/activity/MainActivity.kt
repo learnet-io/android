@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
     private lateinit var chipNavigationBar: ChipNavigationBar
     private lateinit var softAssist: SoftInputAssist
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +32,7 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
         setContentView(binding.root)
         initFirebase()
         initNavigation()
-        val user: User = getUserFromIntent()
-        greetUser(user)
+        user = getUserFromIntent()
 
         supportFragmentManager.beginTransaction()
             .replace(
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
 
     override fun onStart() {
         super.onStart()
-        goToLoginScreen()
+        gotToOnBoarding()
     }
 
     private fun bottomMenu() {
@@ -125,6 +125,14 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
     private fun goToLoginScreen() {
         if (firebaseAuth.currentUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun gotToOnBoarding() {
+        // TODO: remove isAuthenticated check once on-boarding work
+        if (!user.onBoarded) {
+            startActivity(Intent(this, OnBoardingActivity::class.java))
             finish()
         }
     }

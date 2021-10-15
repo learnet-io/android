@@ -23,7 +23,8 @@
 
     <TableLayout
         android:id="@+id/tl_matches_1"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/round_corners_with_borders_event_organizer"
@@ -75,7 +76,8 @@
 
     <TableLayout
         android:id="@+id/tl_matches_2"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/round_corners_with_borders_event_organizer"
@@ -127,7 +129,8 @@
 
     <TableLayout
         android:id="@+id/tl_matches_3"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/round_corners_with_borders_event_organizer"
@@ -191,7 +194,7 @@
     </LinearLayout>
 
     <include
-        android:id="@+id/i_fab"
+        android:id="@+id/i_fab_match_details"
         layout="@layout/reusable_fab_next" />
 
 

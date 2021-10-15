@@ -11,6 +11,7 @@ data class User(
     var uid: String = "",
     var name: String = "",
     var email: String = "",
+    var onBoarded: Boolean = false,
     var isNewUser: Boolean = false,
     var isCreated: Boolean = false,
     var isAuthenticated: Boolean = false,

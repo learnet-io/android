@@ -108,7 +108,7 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
     }
 
     private fun goToMainActivity(authenticatedUser: User) {
-//        progressDialog.dismiss()
+        progressDialog.dismiss()
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra(AuthRepo.USER, authenticatedUser)
         startActivity(intent)

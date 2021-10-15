@@ -36,8 +36,12 @@ class AuthRepo {
                     val uid = firebaseUser.uid
                     val name = firebaseUser.displayName
                     val email = firebaseUser.email
-                    val user = User(uid, name!!, email!!, isNewUser, !isNewUser, true,
-                    null)
+                    val user = User(uid, name!!, email!!,
+                        isNewUser = isNewUser,
+                        isCreated = !isNewUser,
+                        onBoarded = false,
+                        isAuthenticated = true,
+                        createdDt = null)
                     userLiveData.value = user
                 }
             } else {

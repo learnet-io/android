@@ -18,8 +18,9 @@ class SplashRepo {
     private val user: User = User("", "", "",
         isNewUser = false,
         isCreated = false,
+        onBoarded = false,
         isAuthenticated = false,
-        null
+        createdDt = null
     )
     private val rootRef = FirebaseFirestore.getInstance()
     private val usersRef = rootRef.collection(AuthRepo.USER)
