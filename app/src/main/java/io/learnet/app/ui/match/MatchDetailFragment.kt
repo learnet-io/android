@@ -21,7 +21,6 @@ class MatchDetailFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_match_detail, container, false)
     }
 
@@ -33,7 +32,7 @@ class MatchDetailFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0!!.id) {
-            R.id.i_fab_match_intro -> getUserFromDatabase()
+            R.id.i_fab_match_details -> goToMainActivity()
         }
     }
 
@@ -46,17 +45,13 @@ class MatchDetailFragment : Fragment(), View.OnClickListener {
         splashViewModel = ViewModelProvider(this).get(SplashViewModel::class.java)
     }
 
-    private fun getUserFromDatabase() {
-        splashViewModel.userLiveData.observe(this) { user ->
-            goToMainActivity(user)
-        }
-        goToMainActivity(null)
-    }
 
-    private fun goToMainActivity(user: User?) {
-
+    private fun goToMainActivity() {
+        val user = activity?.intent?.getSerializableExtra(AuthRepo.USER) as User
+        user.onBoarded = true // TODO: save this to the database
         val intent = Intent(activity, MainActivity::class.java)
-//        intent.putExtra(AuthRepo.USER, user)
+        intent.putExtra(AuthRepo.USER, user)
         startActivity(intent)
+        activity?.finish()
     }
 }

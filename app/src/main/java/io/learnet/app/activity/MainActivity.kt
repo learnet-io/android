@@ -132,7 +132,9 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
     private fun gotToOnBoarding() {
         // TODO: remove isAuthenticated check once on-boarding work
         if (!user.onBoarded) {
-            startActivity(Intent(this, OnBoardingActivity::class.java))
+            val intent =Intent(this, OnBoardingActivity::class.java)
+            intent.putExtra(AuthRepo.USER, user)
+            startActivity(intent)
             finish()
         }
     }
