@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import io.learnet.app.ui.posts.PostDetailFragment
+import io.learnet.app.ui.posts.PostsHomePrivateFragment
 import io.learnet.app.ui.posts.PostsHomePublicFragment
 
 /**
@@ -22,7 +23,7 @@ class HomeViewPagerAdapter(fragmentManager: FragmentManager,
     override fun createFragment(position: Int): Fragment {
        return when (position) {
              0 -> PostsHomePublicFragment()
-            else -> PostsHomePublicFragment()
+            else -> PostsHomePrivateFragment()
         }
     }
 }

@@ -8,13 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.FrameLayout
+import androidx.compose.ui.res.dimensionResource
+import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 
 /**
  * @author Bizuwork Melesse
  * created on 10/2/21
  */
-class SoftInputAssist(private val activity: Activity, private val bottomNavHeight: Int) {
+class SoftInputAssist(activity: Activity) {
     private var rootView: View? = null
     private var contentContainer: ViewGroup? = null
     private var viewTreeObserver: ViewTreeObserver? = null
@@ -24,6 +26,8 @@ class SoftInputAssist(private val activity: Activity, private val bottomNavHeigh
     private val rootViewLayout: FrameLayout.LayoutParams
     private var usableHeightPrevious = 0
     private var defaultUserScreenSize = 0
+    private var bottomNavHeight: Int = 0
+    private val chipNavigationBar: ChipNavigationBar
     @Volatile var keyboardIsOpen = false
 
     init {
@@ -32,8 +36,10 @@ class SoftInputAssist(private val activity: Activity, private val bottomNavHeigh
         rootViewLayout = rootView!!.layoutParams as FrameLayout.LayoutParams
         rootView?.getWindowVisibleDisplayFrame(contentAreaOfWindowBounds)
         defaultUserScreenSize = contentAreaOfWindowBounds.height()
-        resizeListener = { possiblyResizeChildOfContent() }
+        resizeListener = { resizeContentHeight() }
         keyboardVisibilityListener = { keyboardListener() }
+        chipNavigationBar = (activity.findViewById(io.learnet.app.R.id.bottom_nav) as ChipNavigationBar)
+        bottomNavHeight =  chipNavigationBar.layoutParams.height
     }
 
     private fun keyboardListener() {
@@ -65,16 +71,15 @@ class SoftInputAssist(private val activity: Activity, private val bottomNavHeigh
     }
 
     fun onDestroy() {
-        rootView = null
-        contentContainer = null
-        viewTreeObserver = null
         keyboardIsOpen = false
     }
 
-    private fun possiblyResizeChildOfContent() {
+    private fun resizeContentHeight() {
         var offset = 0
+        chipNavigationBar.visibility = View.VISIBLE
         if (keyboardIsOpen) {
-            offset = bottomNavHeight
+            offset =  bottomNavHeight
+            chipNavigationBar.visibility = View.INVISIBLE
         }
         contentContainer?.getWindowVisibleDisplayFrame(contentAreaOfWindowBounds)
         val usableHeightNow = contentAreaOfWindowBounds.height() + offset

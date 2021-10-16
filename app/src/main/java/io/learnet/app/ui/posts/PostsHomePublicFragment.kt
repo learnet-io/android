@@ -36,7 +36,7 @@ class PostsHomePublicFragment : Fragment(), View.OnClickListener {
         postItems.add(sectionHeader)
 
         // Add post items
-        postItems.addAll(DemoPostCreator.createPostList(20))
+        postItems.addAll(DemoPostCreator.createPostList(6))
         val adapter = PostAdapter(postItems)
         rvPosts.adapter = adapter
         rvPosts.layoutManager = LinearLayoutManager(activity)

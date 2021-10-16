@@ -37,25 +37,8 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-//                TaskHomeFragment()
                 HomeFragment()
-//                IntroGoalsFragment()
-//                LoginFragment()
-//                MatchDetailFragment(),
-//                MatchIntroFragment()
-//                EventHomeFragment()
-//                EventDetailEditFragment()
-//                EventDetailFragment()
-//                EventListFragment()
-//                UserProfileEditFragment()
-//                UserProfileFragment()
-//                CreatePostReplyFragment()
-//                CreatePostFragment()
-//                PostsHomeFragment()
-//            TextInputFragment()
             ).commit()
-        
-
     }
 
     private fun greetUser(user: User) {
@@ -71,7 +54,7 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
         chipNavigationBar = findViewById(R.id.bottom_nav)
         chipNavigationBar.setItemSelected(R.id.bottom_nav, true)
         bottomMenu()
-        softAssist = SoftInputAssist(this, chipNavigationBar.layoutParams.height)
+        softAssist = SoftInputAssist(this)
     }
 
     private fun initFirebase() {
@@ -136,6 +119,8 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
             intent.putExtra(AuthRepo.USER, user)
             startActivity(intent)
             finish()
+        } else {
+            greetUser(user)
         }
     }
 }

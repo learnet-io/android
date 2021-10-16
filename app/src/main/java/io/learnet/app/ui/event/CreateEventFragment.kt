@@ -23,7 +23,7 @@ class CreateEventFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initButtons()
-        activity?.let { softAssist = SoftInputAssist(it, R.dimen.bottom_margin) }
+        activity?.let { softAssist = SoftInputAssist(it) }
     }
 
     override fun onResume() {
