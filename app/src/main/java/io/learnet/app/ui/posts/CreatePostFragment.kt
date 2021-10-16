@@ -35,18 +35,19 @@ class CreatePostFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onResume() {
-        softAssist?.onResume()
         super.onResume()
+        softAssist?.onResume()
     }
 
     override fun onPause() {
-        softAssist?.onPause()
         super.onPause()
+        softAssist?.onPause()
     }
 
     override fun onDestroy() {
-        softAssist?.onDestroy()
         super.onDestroy()
+        softAssist?.onDestroy()
+
     }
 
     override fun onClick(p0: View?) {

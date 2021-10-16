@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.FrameLayout
-import androidx.compose.ui.res.dimensionResource
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 
@@ -71,6 +70,7 @@ class SoftInputAssist(activity: Activity) {
     }
 
     fun onDestroy() {
+        viewTreeObserver = null
         keyboardIsOpen = false
     }
 
@@ -90,8 +90,35 @@ class SoftInputAssist(activity: Activity) {
             rootView?.layout(contentAreaOfWindowBounds.left, contentAreaOfWindowBounds.top,
                 contentAreaOfWindowBounds.right, contentAreaOfWindowBounds.bottom)
             rootView?.requestLayout()
-
             usableHeightPrevious = usableHeightNow
         }
+
+//        if (!keyboardIsOpen) {
+//            rootViewLayout.height = defaultUserScreenSize
+//            // Change the bounds of the root view to prevent gap between keyboard and content,
+//            // and top of content positioned above top screen edge.
+//            rootView?.layout(contentAreaOfWindowBounds.left, contentAreaOfWindowBounds.top,
+//                contentAreaOfWindowBounds.right, contentAreaOfWindowBounds.bottom)
+//            rootView?.requestLayout()
+//        }
+//        if (keyboardIsOpen) {
+//            offset =  bottomNavHeight
+//            chipNavigationBar.visibility = View.INVISIBLE
+//            contentContainer?.getWindowVisibleDisplayFrame(contentAreaOfWindowBounds)
+//            val usableHeightNow = contentAreaOfWindowBounds.height() + offset
+//            rootViewLayout.height = usableHeightNow
+//            // Change the bounds of the root view to prevent gap between keyboard and content,
+//            // and top of content positioned above top screen edge.
+//            rootView?.layout(contentAreaOfWindowBounds.left, contentAreaOfWindowBounds.top,
+//                contentAreaOfWindowBounds.right, contentAreaOfWindowBounds.bottom)
+//            rootView?.requestLayout()
+//        } else {
+//            rootViewLayout.height = defaultUserScreenSize
+//            // Change the bounds of the root view to prevent gap between keyboard and content,
+//            // and top of content positioned above top screen edge.
+//            rootView?.layout(contentAreaOfWindowBounds.left, contentAreaOfWindowBounds.top,
+//                contentAreaOfWindowBounds.right, contentAreaOfWindowBounds.bottom)
+//            rootView?.requestLayout()
+//        }
     }
 }

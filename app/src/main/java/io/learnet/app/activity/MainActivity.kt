@@ -15,14 +15,12 @@ import io.learnet.app.ui.event.EventHomeFragment
 import io.learnet.app.ui.home.HomeFragment
 import io.learnet.app.ui.profile.UserProfileFragment
 import io.learnet.app.ui.task.TaskHomeFragment
-import io.learnet.app.ui.utils.SoftInputAssist
 
 
 class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var chipNavigationBar: ChipNavigationBar
-    private lateinit var softAssist: SoftInputAssist
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var user: User
 
@@ -54,31 +52,15 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
         chipNavigationBar = findViewById(R.id.bottom_nav)
         chipNavigationBar.setItemSelected(R.id.bottom_nav, true)
         bottomMenu()
-        softAssist = SoftInputAssist(this)
     }
 
     private fun initFirebase() {
         firebaseAuth = FirebaseAuth.getInstance()
     }
 
-    override fun onResume() {
-        softAssist.onResume()
-        super.onResume()
-    }
-
-    override fun onPause() {
-        softAssist.onPause()
-        super.onPause()
-    }
-
-    override fun onDestroy() {
-        softAssist.onDestroy()
-        super.onDestroy()
-    }
-
     override fun onStart() {
         super.onStart()
-        gotToOnBoarding()
+//        gotToOnBoarding()
     }
 
     private fun bottomMenu() {

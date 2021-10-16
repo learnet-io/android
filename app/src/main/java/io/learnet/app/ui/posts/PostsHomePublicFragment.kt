@@ -15,7 +15,7 @@ import io.learnet.app.ui.utils.SectionHeader
 
 class PostsHomePublicFragment : Fragment(), View.OnClickListener {
 
-    var postItems: ArrayList<Any> = ArrayList()
+    private var postItems: ArrayList<Any> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
