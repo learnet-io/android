@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), FirebaseAuth.AuthStateListener {
 
     override fun onStart() {
         super.onStart()
-//        gotToOnBoarding()
+        gotToOnBoarding()
     }
 
     private fun bottomMenu() {
