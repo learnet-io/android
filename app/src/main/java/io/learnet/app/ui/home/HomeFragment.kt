@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import io.learnet.app.R
 import io.learnet.app.adapter.HomeViewPagerAdapter
@@ -15,10 +16,6 @@ class HomeFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
     private lateinit var homeTabAdapter: HomeViewPagerAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +27,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tabLayout = view?.findViewById(R.id.tl_home_tabs)
-        viewPager2 = view?.findViewById(R.id.vp_tablayout_view_pager)
+        initTabLayout()
+    }
+
+    private fun initTabLayout() {
+        tabLayout = view?.findViewById(R.id.tl_home_tabs)!!
+        viewPager2 = view?.findViewById(R.id.vp_tablayout_view_pager)!!
         homeTabAdapter = HomeViewPagerAdapter(childFragmentManager, lifecycle)
         viewPager2.adapter = homeTabAdapter
 

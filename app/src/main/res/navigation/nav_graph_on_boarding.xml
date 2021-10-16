@@ -2,32 +2,33 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_nav_graph"
+    android:id="@+id/nav_graph_on_boarding"
     app:startDestination="@id/introGoalsFragment">
     <fragment
         android:id="@+id/introGoalsFragment"
         android:name="io.learnet.app.ui.match.IntroGoalsFragment"
         android:label="fragment_intro_goals"
-        tools:layout="@layout/fragment_intro_goals" >
+        tools:layout="@layout/fragment_intro_goals">
         <action
             android:id="@+id/action_introGoalsFragment_to_matchIntroFragment"
             app:destination="@id/matchIntroFragment"
-            app:popUpTo="@id/main_nav_graph"
-            app:popUpToInclusive="true"/>
+            app:popUpTo="@id/nav_graph_on_boarding"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/matchIntroFragment"
         android:name="io.learnet.app.ui.match.MatchIntroFragment"
         android:label="fragment_match_intro"
-        tools:layout="@layout/fragment_match_intro" >
+        tools:layout="@layout/fragment_match_intro">
         <action
             android:id="@+id/action_matchIntroFragment_to_matchDetailFragment"
             app:destination="@id/matchDetailFragment"
-            app:popUpTo="@id/main_nav_graph"
-            app:popUpToInclusive="true"/>
+            app:popUpTo="@id/nav_graph_on_boarding"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/matchDetailFragment"
         android:name="io.learnet.app.ui.match.MatchDetailFragment"
         android:label="MatchDetailFragment" />
+
 </navigation>

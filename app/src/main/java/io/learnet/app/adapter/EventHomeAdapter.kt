@@ -4,9 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import io.learnet.app.R
+import io.learnet.app.activity.MainActivity
 import io.learnet.app.ui.event.EventCalendar
+import io.learnet.app.ui.event.EventDetailFragment
 import io.learnet.app.ui.event.EventItem
 import io.learnet.app.ui.event.EventPlaceholder
 import io.learnet.app.ui.utils.SectionHeader
@@ -32,12 +35,27 @@ class EventHomeAdapter(private val viewItems: List<*>) :
         }
     }
 
-    inner class EventItemViewHolder(itemView: View) : BaseViewHolder<EventItem>(itemView) {
+    inner class EventItemViewHolder(itemView: View) : BaseViewHolder<EventItem>(itemView),
+        View.OnClickListener {
         override fun bind(item: EventItem) {
             val eventTitleView = itemView.findViewById<TextView>(R.id.tv_event_title)
             val eventSummaryView = itemView.findViewById<TextView>(R.id.tv_event_summary)
             eventTitleView.text = item.title
             eventSummaryView.text = item.summary
+
+            eventTitleView.setOnClickListener(this)
+            eventSummaryView.setOnClickListener(this)
+        }
+
+        override fun onClick(p0: View?) {
+            loadEventDetails(p0!!.context as MainActivity)
+        }
+
+        private fun loadEventDetails(activity: MainActivity) {
+            activity.supportFragmentManager!!.beginTransaction()
+                .replace(R.id.fragment_container, EventDetailFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 

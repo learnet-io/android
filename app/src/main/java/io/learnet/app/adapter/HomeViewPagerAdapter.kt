@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import io.learnet.app.ui.posts.PostDetailFragment
-import io.learnet.app.ui.posts.PostsHomeFragment
+import io.learnet.app.ui.posts.PostsHomePublicFragment
 
 /**
 * @author Bizuwork Melesse
@@ -14,7 +14,6 @@ import io.learnet.app.ui.posts.PostsHomeFragment
 class HomeViewPagerAdapter(fragmentManager: FragmentManager,
                            lifecycle: Lifecycle
 ): FragmentStateAdapter(fragmentManager, lifecycle) {
-//    private val fragments = ArrayList<Fragment>()
 
     override fun getItemCount(): Int {
         return 2
@@ -22,9 +21,8 @@ class HomeViewPagerAdapter(fragmentManager: FragmentManager,
 
     override fun createFragment(position: Int): Fragment {
        return when (position) {
-             0 -> PostsHomeFragment()
-            else -> PostDetailFragment()
-
+             0 -> PostsHomePublicFragment()
+            else -> PostsHomePublicFragment()
         }
     }
 }

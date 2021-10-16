@@ -14,6 +14,6 @@
         tools:listitem="@layout/post_reply"/>
 
     <include
-        android:id="@+id/i_fab"
+        android:id="@+id/i_fab_post_reply"
         layout="@layout/reusable_fab_plus_sign" />
 </FrameLayout>

@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.learnet.app.R
 import io.learnet.app.adapter.PostAdapter
 import io.learnet.app.ui.utils.SectionHeader
 
 
-class PostsHomeFragment : Fragment() {
+class PostsHomePublicFragment : Fragment(), View.OnClickListener {
 
     var postItems: ArrayList<Any> = ArrayList()
 
@@ -26,7 +27,9 @@ class PostsHomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val rvPosts = view?.findViewById(R.id.rvPostInfiniteScroll) as RecyclerView
+        initFabListener()
+
+        val rvPosts = view?.findViewById(R.id.rv_post_list_items) as RecyclerView
 
         // Add a section header
         val sectionHeader = SectionHeader(getString(R.string.post_section_recent_header))
@@ -37,5 +40,23 @@ class PostsHomeFragment : Fragment() {
         val adapter = PostAdapter(postItems)
         rvPosts.adapter = adapter
         rvPosts.layoutManager = LinearLayoutManager(activity)
+    }
+
+    private fun initFabListener() {
+        val fab = view?.findViewById<FloatingActionButton>(R.id.i_fab_create_post)
+        fab?.setOnClickListener(this)
+    }
+
+    override fun onClick(p0: View?) {
+        when (p0!!.id) {
+            R.id.i_fab_create_post -> launchPostCreateInputFragment()
+        }
+    }
+
+    private fun launchPostCreateInputFragment() {
+        activity?.supportFragmentManager!!.beginTransaction()
+            .replace(R.id.fragment_container, CreatePostFragment())
+            .addToBackStack(null)
+            .commit()
     }
 }

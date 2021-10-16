@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/soft_white"
-    tools:context=".ui.posts.PostsHomeFragment">
+    android:id="@+id/post_home_fragment_container"
+    tools:context=".ui.posts.PostsHomePublicFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPostInfiniteScroll"
+        android:id="@+id/rv_post_list_items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/bottom_margin"
         tools:listitem="@layout/post_item"/>
 
     <include
-        android:id="@+id/i_fab"
+        android:id="@+id/i_fab_create_post"
         layout="@layout/reusable_fab_plus_sign" />
 </FrameLayout>

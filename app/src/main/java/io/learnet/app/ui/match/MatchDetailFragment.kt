@@ -27,7 +27,6 @@ class MatchDetailFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initFabListener()
-        initSplashViewModel()
     }
 
     override fun onClick(p0: View?) {
@@ -40,11 +39,6 @@ class MatchDetailFragment : Fragment(), View.OnClickListener {
         val fab = view?.findViewById<FloatingActionButton>(R.id.i_fab_match_details)
         fab?.setOnClickListener(this)
     }
-
-    private fun initSplashViewModel() {
-        splashViewModel = ViewModelProvider(this).get(SplashViewModel::class.java)
-    }
-
 
     private fun goToMainActivity() {
         val user = activity?.intent?.getSerializableExtra(AuthRepo.USER) as User

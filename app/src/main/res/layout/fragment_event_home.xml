@@ -15,6 +15,6 @@
         android:layout_marginBottom="@dimen/bottom_margin" />
 
     <include
-        android:id="@+id/i_fab"
+        android:id="@+id/i_fab_create_event"
         layout="@layout/reusable_fab_plus_sign" />
 </FrameLayout>

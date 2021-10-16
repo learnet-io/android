@@ -1,5 +1,6 @@
 package io.learnet.app.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import io.learnet.app.R
+import io.learnet.app.activity.MainActivity
+import io.learnet.app.ui.posts.CreatePostFragment
+import io.learnet.app.ui.posts.PostDetailFragment
 import io.learnet.app.ui.posts.PostItem
 import io.learnet.app.ui.utils.SectionHeader
 import io.learnet.app.ui.utils.BaseViewHolder
@@ -24,7 +28,7 @@ class PostAdapter(private val viewItems: List<*>) :
         private const val TYPE_POST_ITEM = 1
     }
 
-    inner class PostItemViewHolder(itemView: View) : BaseViewHolder<PostItem>(itemView) {
+    inner class PostItemViewHolder(itemView: View) : BaseViewHolder<PostItem>(itemView), View.OnClickListener {
         override fun bind(item: PostItem) {
             val avatarView = itemView.findViewById<ImageView>(R.id.ivDetailPosterAvatar)
             val postTitleView = itemView.findViewById<TextView>(R.id.tvPostTitle)
@@ -45,6 +49,26 @@ class PostAdapter(private val viewItems: List<*>) :
             voteCountView.text = "${item.voteCount} votes"
             replyCountView.text = "${item.replyCount} replies"
             viewCountView.text = "${item.viewCount} views"
+
+
+            postTitleView.setOnClickListener(this)
+            avatarView.setOnClickListener(this)
+            summaryView.setOnClickListener(this)
+
+        }
+
+        override fun onClick(p0: View?) {
+            loadPostDetails(p0!!.context as MainActivity)
+//            when (p0!!.id) {
+//                R.id.tvPostTitle -> loadPostDetails(p0.context as MainActivity)
+//            }
+        }
+
+        private fun loadPostDetails(activity: MainActivity) {
+            activity.supportFragmentManager!!.beginTransaction()
+                .replace(R.id.fragment_container, PostDetailFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 

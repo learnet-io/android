@@ -22,7 +22,7 @@
             android:padding="8dp">
             <TableRow>
                 <TextView
-                    android:id="@+id/tv_cancel_post"
+                    android:id="@+id/tv_cancel_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
